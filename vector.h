@@ -19,7 +19,7 @@ void setz(double c);
 
 double phi();
 double theta();
-double  len();
+double len();
 
 };
 

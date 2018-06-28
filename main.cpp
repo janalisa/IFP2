@@ -14,7 +14,7 @@ int main() {
     //int n=10; //Unterteilung
     int a=5; //laenge PLatte
     int b=4; //hoehe PLatte
-    int w=10; //Kantenlaenge Wuerfel
+    int w=100; //Kantenlaenge Wuerfel
     int i, j, k; //Laufindizes
     int x=2; //naechste ecke am nullpunkt in x richtung
     int y1=3;
@@ -44,8 +44,8 @@ int main() {
     }
 
 
-//Ausgabe
-    for(k=0; k<=w; k++){ // z Koordinate
+// Ausgabe
+   /* for(k=0; k<=w; k++){ // z Koordinate
         for(j=0; j<=w; j++){
             for(i=0; i<=w; i++){
                 cout << A[i][j][k] << " ";
@@ -53,8 +53,8 @@ int main() {
             cout << endl;
         }
         cout << "\n \n" << endl;
-    }
-
+    } */
+/*
 
 //Platten in leerem Raum initialisieren
     for(i=x; i<=x+a; i++){
@@ -63,10 +63,20 @@ int main() {
             //A[i][y2][k]=M-2;
             cout << i << j;
         }
-    }
+    }*/
+
+//platten als vektoren
+        for(i=x, i<=x+a, i++){
+            for(k=z, k<=z+b, z++){
+                if(j=y1){
+                    A[i][j][k] = vector
+                }
+            }
+        }
 
 
-//Ausgabe
+
+/* //Ausgabe
     cout << "Nach Anlegen der Platten: \n" << endl;
 
     for(k=0; k<=w; k++){ // z Koordinate
@@ -77,10 +87,10 @@ int main() {
             cout << endl;
         }
         cout << "\n \n" << endl;
-    }
+    }*/
 
 
-//cout << A[1][1][1];
+
 
 
 
