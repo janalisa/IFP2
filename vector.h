@@ -5,13 +5,13 @@
 #ifndef IFP_VECTOR_H
 #define IFP_VECTOR_H
 
-class vector{
+class vektor{
     double a,b,c;
 
 public:
-    vector();
-    vector(double x, double y, double z);
-    ~vector();
+    vektor();
+    vektor(double x, double y, double z);
+    ~vektor();
 
 void setx(double a);
 void sety(double b);
