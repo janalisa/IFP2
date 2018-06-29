@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include "vektor.h"
 
 using namespace std;
 
@@ -12,8 +13,8 @@ int main() {
 
 
     //int n=10; //Unterteilung
-    int a=5; //laenge PLatte
-    int b=4; //hoehe PLatte
+    int l=5; //laenge PLatte
+    int h=4; //hoehe PLatte
     int w=100; //Kantenlaenge Wuerfel
     int i, j, k; //Laufindizes
     int x=2; //naechste ecke am nullpunkt in x richtung
@@ -24,24 +25,44 @@ int main() {
     float d; //Abstand der PLatten
     double R; //Summe von rsqr fuer Superposition
     double G=6.67408; //gravitationskonstante ohne POtentz
-    double M= 7; // Massensegment der Platte
+    double m= 7; // Massensegment der Platte
     double g; //Feld
     double eps = pow(10,-4); //epsilon
 
-    double A[w][w][w];
+    vektor A[w][w][w];
+    double M[w][w][w];
 
-
-
-
-//leerem Raum initialisieren
-    for(i=0; i<=w; i++){ // x Koordinate
-        for(j=0; j<=w; j++){
-            for(k=0; k<=w; k++){
-                A[i][j][k]=0;
-
+    // Raum fr mAssen
+    for(i=0; i<w; i++){
+        for(j=0; j<w; j++){
+            for(k=0; k<w; k++){
+                M[i][j][k] = 0;
             }
         }
     }
+
+    //platten als masssenpunkte
+    for(i=x; i<x+l; i++){
+        for(k=z; k<z+h; z++){
+            if(j==y1){
+                M[i][j][k] = m;
+            }
+            if(j==y2){
+                M[i][j][k] = m;
+            }
+        }
+    }
+
+
+//leerem Raum initialisieren
+   /* for(i=0; i<=w; i++){ // x Koordinate
+        for(j=0; j<=w; j++){
+            for(k=0; k<=w; k++){
+                vektor
+
+            }
+        }
+    }*/
 
 
 // Ausgabe
@@ -57,22 +78,18 @@ int main() {
 /*
 
 //Platten in leerem Raum initialisieren
-    for(i=x; i<=x+a; i++){
-        for(k=z; k<=z+b; k++){
-            A[i][0][k]=17;
+    for(i=x; i<=x+l; i++){
+        for(k=z; k<=z+h; k++){
+            A[i][0][k]=17;complex::complex() {
+    real = 0;
+    ima = 0;
+}
             //A[i][y2][k]=M-2;
             cout << i << j;
         }
     }*/
 
-//platten als vektoren
-        for(i=x, i<=x+a, i++){
-            for(k=z, k<=z+b, z++){
-                if(j=y1){
-                    A[i][j][k] = vector
-                }
-            }
-        }
+
 
 
 

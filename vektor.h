@@ -6,7 +6,7 @@
 #define IFP_VECTOR_H
 
 class vektor{
-    double a,b,c;
+    double x,y,z;
 
 public:
     vektor();
