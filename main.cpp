@@ -29,14 +29,20 @@ int main() {
     double g; //Feld
     double eps = pow(10,-4); //epsilon
 
-    vektor A[w][w][w];
-    double M[w][w][w];
+
+    vektor ***A;
+    A = new vektor**[100];
+
+    double M[100][100][100];
 
     // Raum fr mAssen
     for(i=0; i<w; i++){
+        A[i] = new vektor*[100];
         for(j=0; j<w; j++){
+            A[i][j]=new vektor[100];
             for(k=0; k<w; k++){
                 M[i][j][k] = 0;
+                A[i][j][k]=vektor();
             }
         }
     }

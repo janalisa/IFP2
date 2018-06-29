@@ -13,9 +13,9 @@ public:
     vektor(double x, double y, double z);
     ~vektor();
 
-void setx(double a);
-void sety(double b);
-void setz(double c);
+void setx(double x);
+void sety(double y);
+void setz(double z);
 
 double phi();
 double theta();

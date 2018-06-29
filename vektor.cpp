@@ -3,12 +3,11 @@
 //
 
 #include "vektor.h"
-#include <cmath>
 
 vektor::vektor() {
-    x = 0;
-    y = 0;
-    z = 0;
+    x = 0.;
+    y = 0.;
+    z = 0.;
 }
 
 vektor::vektor(double a, double b, double c){
