@@ -12,15 +12,17 @@ int main() {
 //#vonvonvonvon
 
 
+
+
     //int n=10; //Unterteilung
     int l=5; //laenge PLatte
-    int h=4; //hoehe PLatte
-    int w=100; //Kantenlaenge Wuerfel
+   // int h=4; //hoehe PLatte
+   // int w=100; //Kantenlaenge Wuerfel
     int i, j, k; //Laufindizes
     int x=2; //naechste ecke am nullpunkt in x richtung
     int y1=3;
     int y2=6; //nachste ecke am nullpunkt in y richtung, v2>v1
-    int z=4; //naechste ecke am nullpunkt in z richtung
+  //  int z=4; //naechste ecke am nullpunkt in z richtung
     double rsqr; //Abstand segmente quadrat
     float d; //Abstand der PLatten
     double R; //Summe von rsqr fuer Superposition
@@ -30,57 +32,91 @@ int main() {
     double eps = pow(10,-4); //epsilon
 
 
-    vektor ***A;
-    A = new vektor**[100];
+    //nur noch 2D
 
-    double M[100][100][100];
+    //Koordinatensystem initialisieren
 
-    // Raum fr mAssen
-    for(i=0; i<w; i++){
-        A[i] = new vektor*[100];
-        for(j=0; j<w; j++){
-            A[i][j]=new vektor[100];
-            for(k=0; k<w; k++){
-                M[i][j][k] = 0;
-                A[i][j][k]=vektor();
+    double M[i][j];
+    for(i=0; i<100; i++) {
+        for (j = 0; j < 100; j++) {
+            if (j == y1) {
+                for (i >= x; i <= x + l; i++) {
+                    M[i][j] = m;
+                }
+            }
+            if (j == y2) {
+                for (i >= x; i <= x + l; i++) {
+                    M[i][j] = m;
+                }
             }
         }
-    }
 
-    //platten als masssenpunkte
-    for(i=x; i<x+l; i++){
-        for(k=z; k<z+h; z++){
-            if(j==y1){
-                M[i][j][k] = m;
-            }
-            if(j==y2){
-                M[i][j][k] = m;
-            }
-        }
-    }
+        //muss noch gucken was ich jetzt mache
 
+
+
+
+
+
+
+
+
+
+
+
+        //hier kommt nur noch alter shit und return 0;
+
+        /*  vektor ***A;
+          A = new vektor**[100];
+
+          double M[100][100][100];
+
+          // Raum fr mAssen
+          for(i=0; i<w; i++){
+              A[i] = new vektor*[100];
+              for(j=0; j<w; j++){
+                  A[i][j]=new vektor[100];
+                  for(k=0; k<w; k++){
+                      M[i][j][k] = 0;
+                      A[i][j][k]=vektor();
+                  }
+              }
+          }
+
+          //platten als masssenpunkte
+          for(i=x; i<x+l; i++){
+              for(k=z; k<z+h; z++){
+                  if(j==y1){
+                      M[i][j][k] = m;
+                  }
+                  if(j==y2){
+                      M[i][j][k] = m;
+                  }
+              }
+          }
+      */
 
 //leerem Raum initialisieren
-   /* for(i=0; i<=w; i++){ // x Koordinate
-        for(j=0; j<=w; j++){
-            for(k=0; k<=w; k++){
-                vektor
+        /* for(i=0; i<=w; i++){ // x Koordinate
+             for(j=0; j<=w; j++){
+                 for(k=0; k<=w; k++){
+                     vektor
 
-            }
-        }
-    }*/
+                 }
+             }
+         }*/
 
 
 // Ausgabe
-   /* for(k=0; k<=w; k++){ // z Koordinate
-        for(j=0; j<=w; j++){
-            for(i=0; i<=w; i++){
-                cout << A[i][j][k] << " ";
-            }
-            cout << endl;
-        }
-        cout << "\n \n" << endl;
-    } */
+        /* for(k=0; k<=w; k++){ // z Koordinate
+             for(j=0; j<=w; j++){
+                 for(i=0; i<=w; i++){
+                     cout << A[i][j][k] << " ";
+                 }
+                 cout << endl;
+             }
+             cout << "\n \n" << endl;
+         } */
 /*
 
 //Platten in leerem Raum initialisieren
@@ -167,5 +203,5 @@ int main() {
 
 
 */
-    return 0;
-}
+        return 0;
+    }
