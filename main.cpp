@@ -11,14 +11,19 @@ int main() {
 // TH: void greet() { std::cout << "Hallo Leonie" << std::endl;
 //#vonvonvonvon
 
+//this code is brought to you by PEPSI MAX
 
+
+
+
+//The Enrichment Center is committed to the well being of all participants. Cake and grief counseling will be available at the conclusion of the test. Thank you for helping us help you help us all.  - GLaDOS
 
 
     //int n=10; //Unterteilung
     int l=5; //laenge PLatte
    // int h=4; //hoehe PLatte
-   // int w=100; //Kantenlaenge Wuerfel
-    int i, j, k; //Laufindizes
+    int w=100; //Kantenlaenge Wuerfel
+    int i, j, i1, i2, j1, j2; //Laufindizes
     int x=2; //naechste ecke am nullpunkt in x richtung
     int y1=3;
     int y2=6; //nachste ecke am nullpunkt in y richtung, v2>v1
@@ -37,23 +42,70 @@ int main() {
     //Koordinatensystem initialisieren
 
     double M[i][j];
-    for(i=0; i<100; i++) {
+    double X[i][j];
+    double Y[i][j];
+    double GX[i][j];
+    double GY[i][j];
+    double T[i][j];
+    double Mag[i][j];
+
+
+    //initialisieren Koordinatensystem
+    // ALL the ARRAYS
+    for(i=0; i<w; i++) {
         for (j = 0; j < 100; j++) {
-            if (j == y1) {
-                for (i >= x; i <= x + l; i++) {
-                    M[i][j] = m;
-                }
-            }
-            if (j == y2) {
-                for (i >= x; i <= x + l; i++) {
-                    M[i][j] = m;
-                }
-            }
+            M[i][j] = 0; //Masse also PLatten
+            X[i][j] =0; // x Komponente Vektor
+            Y[i][j] = 0; //Y Komponente Vektor
+            GX[i][j] = 0; //Feld X Komponente
+            GY[i][j] = 0; //Feld Y KOmponente
+            T[i][j] = 0; // Winkel zwischen X und Y komponente
+            Mag[i][j]  = 0; // Laenge Vektor
         }
+    }
 
         //muss noch gucken was ich jetzt mache
 
+    for(i=x-1; i<x+l; i++){
+        if(j=y1){
+            M[i][j]=m;
+        }
+        if(j=y2){
+            M[i][j]=m;
+        }
+    }
 
+
+
+    //It is sometimes an appropriate response to reality to go insane. - Philip K. Dick
+
+    //Alles ausrechnen
+    for(i1=0; i1<w/2; i1++){
+        for(j1=0; j1<w/2; j1++){
+            for(j2=0; j2<w; j2++){
+                if(j2=y1){
+                    for(i2=x-1; i2<x+l; i2++) {
+                        X[i2][j2] = i2 - i1;
+                        Y[i2][j2] = j2 - j1;
+                        GX[i2][j2] = (G * M[i2][j2]) / (X[i2][j2] * X[i2][j2]);
+                        GY[i2][j2] = (G * M[i2][j2]) / (Y[i2][j2] * Y[i2][j2]);
+                        T[i2][j2] = atan(Y[i2][j2] / X[i2][j2]);
+                        Mag[i2][j2] = sqrt(X[i2][j2] * X[i2][j2] + Y[i2][j2] * X[i2][j2]);
+                    }
+                }
+                if(j2=y2){
+                    for(i2=x-1; i2<x+l; i2++) {
+                        X[i2][j2] = i2 - i1;
+                        Y[i2][j2] = j2 - j1;
+                        GX[i2][j2] = (G * M[i2][j2]) / (X[i2][j2] * X[i2][j2]);
+                        GY[i2][j2] = (G * M[i2][j2]) / (Y[i2][j2] * Y[i2][j2]);
+                        T[i2][j2] = atan(Y[i2][j2] / X[i2][j2]);
+                        Mag[i2][j2] = sqrt(X[i2][j2] * X[i2][j2] + Y[i2][j2] * X[i2][j2]);
+                    }
+                }
+            }
+        }
+    }
 
 
 
