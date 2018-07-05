@@ -3,4 +3,4 @@ project(IFP)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(IFP main.cpp vektor.h vektor.cpp)
+add_executable(IFP main.cpp vektor.h vektor.cpp inhomo.cpp)
