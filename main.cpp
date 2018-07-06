@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include "vektor.h"
+#include "TH2.h"
 
 using namespace std;
 
@@ -108,8 +109,21 @@ int main() {
     }
 
 
+// Spiegeln
+        for(int k=0; k<w/2; k++){
+            for(int l=0; l<w/2; l++){
+                Mag[k][l] = Mag[k][l] + Mag[w-k][l] + Mag[k][w-l] + Mag[w-k][w-l];
+            }
+    }
 
+//Bild vllt vllt auch bullshit
 
+        TH2* h = new TH2F("h2", "Feldstaerke", w, 0, w, w, 0, w);
+    for(i=0; i<w;i++){
+        for(j=0; j<w; j++){
+            h->SetBinContent(i,j, Mag[i][j]);
+        }
+    }
 
 
 
