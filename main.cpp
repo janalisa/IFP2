@@ -5,6 +5,17 @@
 #include "feld.h"
 using namespace std;
 
+feld::feld(double X2[i][j], Y2[i][j]){
+    X2[i][j] = GX[i][j];
+    Y2[i][j] = GY[i][j];
+}
+
+feld::~feld(){};
+
+void feld::setvalue(double X2[i][j], double Y2[i][j]) = (GX[i][j], GY[i][j]]]);
+double feld::mag() {return X2[i][j]*Y2[i][j];}
+}
+
 int main() {
 // TH: wenn Du stdio.h includest, dann wird es C, bei C++ heißt die Funktionalitaet iostream
 
