@@ -42,13 +42,13 @@ int main() {
 
 
     //int n=10; //Unterteilung
-    int l=5; //laenge PLatte
+    int l =5; //laenge PLatte
    // int h=4; //hoehe PLatte
-    int w=100; //Kantenlaenge Wuerfel
+    int w =100; //Kantenlaenge Wuerfel
     int i, j, i1, i2, j1, j2; //Laufindizes
-    int x=2; //naechste ecke am nullpunkt in x richtung
-    int y1=3;
-    int y2=6; //nachste ecke am nullpunkt in y richtung, v2>v1
+    int x =2; //naechste ecke am nullpunkt in x richtung
+    int y1 =3;
+    int y2 =6; //nachste ecke am nullpunkt in y richtung, v2>v1
   //  int z=4; //naechste ecke am nullpunkt in z richtung
     double rsqr; //Abstand segmente quadrat
     float d; //Abstand der PLatten
@@ -70,6 +70,20 @@ int main() {
     double GY[i][j];
     double T[i][j];
     double Mag[i][j];
+
+
+
+    // Eingabeshit fragen, dann aber oben ab = rauskommenteirtn
+ //     cout << "Wie lang soll die Platte sein?";
+ //     scanf("%i", &ll)
+ //     cout << "Bei welchem X Wert beginnt die Platte?";
+ //     scanf("%i", &x);
+ //     cout << "Bei welchem Y Wert liegt die ertse Platte;"
+ //     scanf("%i", &y1);
+ //     cout << "Bei welchem Y Wert liegt die zweite Platte";
+ //     scanf("%i", &y2);
+ //     cout << "Wie gross ist die Unterteilung? Der Wert sollte grosser als X+laenge udn das groessere Y sein.";
+ //     scanf("%i", &w);
 
 
     //initialisieren Koordinatensystem
@@ -125,7 +139,7 @@ int main() {
                         X[i2][j2] = i2 - i1;
                         Y[i2][j2] = j2 - j1;
                         GX[i2][j2] = (G * M[i2][j2]) / (X[i2][j2] * X[i2][j2]);
-                        GY[i2][j2] = (G * M[i2][j2]) / (Y[i2][j2] * Y[i2][j2]);
+                        GY[i2][j2] = (G * M[i2][j2]) / (Y[i2][j2] * Y[i2][j2]);s
                         T[i2][j2] = atan(Y[i2][j2] / X[i2][j2]);
                         Mag[i2][j2] = sqrt(X[i2][j2] * X[i2][j2] + Y[i2][j2] * X[i2][j2]);
                     }
