@@ -133,9 +133,9 @@ int main() {
 
     //It is sometimes an appropriate response to reality to go insane. - Philip K. Dick
 
-    //Alles ausrechnen
-    for (i1 = 0; i1 < w / 2; i1++) {
-        for (j1 = 0; j1 < w / 2; j1++) {
+  /*  //Alles ausrechnen
+    for (i1 = 0; i1 < w; i1++) {
+        for (j1 = 0; j1 < w; j1++) {
             for (j2 = 0; j2 < w; j2++) {
                 if (j2 = y1) {
                     for (i2 = x - 1; i2 < x + l; i2++) {
@@ -162,5 +162,21 @@ int main() {
     }
 
 
+   /*
+
+//Bild vllt vllt auch bullshit
+//warum kommt kein Bild?
+
+        TH2* h = new TH2F("h2", "Feldstaerke", w, 0, w, w, 0, w);
+    for(i=0; i<w;i++){
+        for(j=0; j<w; j++){
+            h->SetBinContent(i,j, Mag[i][j]);
+        }
+    }
+
+
+   */
+
+
     return 0;
-}
+}*/

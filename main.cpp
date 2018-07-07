@@ -16,6 +16,16 @@ void feld::setvalue(double X2[i][j], double Y2[i][j]) = (GX[i][j], GY[i][j]]]);
 double feld::mag() {return X2[i][j]*Y2[i][j];}
 }
 
+// i have no idea what i'm doing
+
+
+
+
+
+
+
+//#experimentelle informatik
+
 int main() {
 // TH: wenn Du stdio.h includest, dann wird es C, bei C++ heißt die Funktionalitaet iostream
 
@@ -92,6 +102,11 @@ int main() {
     //It is sometimes an appropriate response to reality to go insane. - Philip K. Dick
 
     //Alles ausrechnen
+
+
+    // was will ich eigetnlich mit der Klasse?
+
+
     for(i1=0; i1<w/2; i1++){
         for(j1=0; j1<w/2; j1++){
             for(j2=0; j2<w; j2++){
@@ -128,6 +143,7 @@ int main() {
     }
 
 //Bild vllt vllt auch bullshit
+//warum kommt kein Bild?
 
         TH2* h = new TH2F("h2", "Feldstaerke", w, 0, w, w, 0, w);
     for(i=0; i<w;i++){
