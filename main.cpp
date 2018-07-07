@@ -2,7 +2,7 @@
 #include <cmath>
 #include "vektor.h"
 #include "TH2.h"
-
+#include "feld.h"
 using namespace std;
 
 int main() {
@@ -109,7 +109,7 @@ int main() {
     }
 
 
-// Spiegeln
+// Spiegeln Betrag
         for(int k=0; k<w/2; k++){
             for(int l=0; l<w/2; l++){
                 Mag[k][l] = Mag[k][l] + Mag[w-k][l] + Mag[k][w-l] + Mag[w-k][w-l];

@@ -1,7 +1,7 @@
 //
 // Created by sia on 5-7-18.
 //
-
+/*
 #include <iostream>
 #include <cmath>
 #include "vektor.h"
@@ -70,10 +70,10 @@ int main() {
             Mag[i][j] = 0; // Laenge Vektor
         }
     }
-
+*/
     //Platten initialisierenn ist halt hsslicher
 
-    for(j=0; j<w; j++){
+ /*   for(j=0; j<w; j++){
             if(j=y1 || j=y2){
                 M[29][j] = 1;
                 M[30][j] = 1;
@@ -129,7 +129,7 @@ int main() {
             }
     }
 
-
+*/
 
     //It is sometimes an appropriate response to reality to go insane. - Philip K. Dick
 
