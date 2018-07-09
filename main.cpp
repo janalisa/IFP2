@@ -1,28 +1,9 @@
 #include <iostream>
 #include <cmath>
-#include "vektor.h"
+//#include "vektor.h"
 #include "TH2.h"
 #include "feld.h"
 using namespace std;
-
-feld::feld(double X2[i][j], Y2[i][j]){
-    X2[i][j] = GX[i][j];
-    Y2[i][j] = GY[i][j];
-}
-
-feld::~feld(){};
-
-void feld::setvalue(double X2[i][j], double Y2[i][j]) = (GX[i][j], GY[i][j]]]);
-double feld::mag() {return X2[i][j]*Y2[i][j];}
-}
-
-// i have no idea what i'm doing
-
-
-
-
-
-
 
 //#experimentelle informatik
 
@@ -34,9 +15,6 @@ int main() {
 //#vonvonvonvon
 
 //this code is brought to you by PEPSI MAX
-
-
-
 
 //The Enrichment Center is committed to the well being of all participants. Cake and grief counseling will be available at the conclusion of the test. Thank you for helping us help you help us all.  - GLaDOS
 
@@ -97,7 +75,10 @@ int main() {
             GY[i][j] = 0; //Feld Y KOmponente
             T[i][j] = 0; // Winkel zwischen X und Y komponente
             Mag[i][j]  = 0; // Laenge Vektor
+
+            cout << "ini1 \n";
         }
+        cout << "ini2 \n";
     }
 
         //muss noch gucken was ich jetzt mache
@@ -110,6 +91,7 @@ int main() {
             M[i][j]=m;
         }
     }
+    cout << M;
 
 
 
@@ -128,7 +110,8 @@ int main() {
                     for(i2=x-1; i2<x+l; i2++) {
                         X[i2][j2] = i2 - i1;
                         Y[i2][j2] = j2 - j1;
-                        GX[i2][j2] = (G * M[i2][j2]) / (X[i2][j2] * X[i2][j2]);
+                        cout << X;
+                        GX[i2][j2] = (G * M[i2][j2]) / (X[i2][j2] * X[i2][j2]); //feld(i2,j2i2])
                         GY[i2][j2] = (G * M[i2][j2]) / (Y[i2][j2] * Y[i2][j2]);
                         T[i2][j2] = atan(Y[i2][j2] / X[i2][j2]);
                         Mag[i2][j2] = sqrt(X[i2][j2] * X[i2][j2] + Y[i2][j2] * X[i2][j2]);
@@ -138,8 +121,9 @@ int main() {
                     for(i2=x-1; i2<x+l; i2++) {
                         X[i2][j2] = i2 - i1;
                         Y[i2][j2] = j2 - j1;
+                        cout << Y;
                         GX[i2][j2] = (G * M[i2][j2]) / (X[i2][j2] * X[i2][j2]);
-                        GY[i2][j2] = (G * M[i2][j2]) / (Y[i2][j2] * Y[i2][j2]);s
+                        GY[i2][j2] = (G * M[i2][j2]) / (Y[i2][j2] * Y[i2][j2]);
                         T[i2][j2] = atan(Y[i2][j2] / X[i2][j2]);
                         Mag[i2][j2] = sqrt(X[i2][j2] * X[i2][j2] + Y[i2][j2] * X[i2][j2]);
                     }
@@ -159,7 +143,7 @@ int main() {
 //Bild vllt vllt auch bullshit
 //warum kommt kein Bild?
 
-        TH2* h = new TH2F("h2", "Feldstaerke", w, 0, w, w, 0, w);
+    TH2* h = new TH2F("h2", "Feldstaerke", w, 0, w, w, 0, w);
     for(i=0; i<w;i++){
         for(j=0; j<w; j++){
             h->SetBinContent(i,j, Mag[i][j]);

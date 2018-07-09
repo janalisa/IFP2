@@ -3,4 +3,9 @@ project(IFP)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(IFP main.cpp vektor.h vektor.cpp inhomo.cpp cmake-build-debug/feld.h)
+find_package(ROOT)
+
+
+add_executable(IFP main.cpp vektor.h vektor.cpp inhomo.cpp feld.h feld.cpp)
+
+target_link_libraries(IFP ${ROOT_LIBRARIES})
