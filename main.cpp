@@ -49,8 +49,6 @@ int main() {
     double T[i][j];
     double Mag[i][j];
 
-
-
     // Eingabeshit fragen, dann aber oben ab = rauskommenteirtn
  //     cout << "Wie lang soll die Platte sein?";
  //     scanf("%i", &ll)
@@ -76,9 +74,10 @@ int main() {
             T[i][j] = 0; // Winkel zwischen X und Y komponente
             Mag[i][j]  = 0; // Laenge Vektor
 
-            cout << "ini1 \n";
+            cout << j; //haengt sich glaube ichhier schon auf
+            cout << "\n";
         }
-        cout << "ini2 \n";
+        //cout << i;
     }
 
         //muss noch gucken was ich jetzt mache
@@ -103,6 +102,14 @@ int main() {
     // was will ich eigetnlich mit der Klasse?
 
 
+    //Ding was durchfliegt, von links, betrifft nur die x komponente
+    double vx =7;
+    double vy =3;
+    double t=vx/l;
+    double F[w][w];
+    double mm = 9; // Masse vom Teilchen
+
+
     for(i1=0; i1<w/2; i1++){
         for(j1=0; j1<w/2; j1++){
             for(j2=0; j2<w; j2++){
@@ -111,10 +118,14 @@ int main() {
                         X[i2][j2] = i2 - i1;
                         Y[i2][j2] = j2 - j1;
                         cout << X;
-                        GX[i2][j2] = (G * M[i2][j2]) / (X[i2][j2] * X[i2][j2]); //feld(i2,j2i2])
-                        GY[i2][j2] = (G * M[i2][j2]) / (Y[i2][j2] * Y[i2][j2]);
-                        T[i2][j2] = atan(Y[i2][j2] / X[i2][j2]);
-                        Mag[i2][j2] = sqrt(X[i2][j2] * X[i2][j2] + Y[i2][j2] * X[i2][j2]);
+                        if(X[i2][j2] !=0 && Y[i2][j2] !=0) {
+                            GX[i2][j2] = (G * M[i2][j2]) / (X[i2][j2] * X[i2][j2]); //feld(i2,j2i2])
+                            GY[i2][j2] = (G * M[i2][j2]) / (Y[i2][j2] * Y[i2][j2]);
+                            T[i2][j2] = atan(Y[i2][j2] / X[i2][j2]);
+                            Mag[i2][j2] = sqrt(X[i2][j2] * X[i2][j2] + Y[i2][j2] * X[i2][j2]);
+                            F[i][j] = GX[i][j] * mm;
+                            cout << GX;
+                        }
                     }
                 }
                 if(j2=y2){
@@ -122,10 +133,13 @@ int main() {
                         X[i2][j2] = i2 - i1;
                         Y[i2][j2] = j2 - j1;
                         cout << Y;
-                        GX[i2][j2] = (G * M[i2][j2]) / (X[i2][j2] * X[i2][j2]);
-                        GY[i2][j2] = (G * M[i2][j2]) / (Y[i2][j2] * Y[i2][j2]);
-                        T[i2][j2] = atan(Y[i2][j2] / X[i2][j2]);
-                        Mag[i2][j2] = sqrt(X[i2][j2] * X[i2][j2] + Y[i2][j2] * X[i2][j2]);
+                        if(X[i2][j2] !=0 && Y[i2][j2] !=0) {
+                            GX[i2][j2] = (G * M[i2][j2]) / (X[i2][j2] * X[i2][j2]);
+                            GY[i2][j2] = (G * M[i2][j2]) / (Y[i2][j2] * Y[i2][j2]);
+                            T[i2][j2] = atan(Y[i2][j2] / X[i2][j2]);
+                            Mag[i2][j2] = sqrt(X[i2][j2] * X[i2][j2] + Y[i2][j2] * X[i2][j2]);
+                            cout << GY;
+                        }
                     }
                 }
             }
@@ -149,6 +163,17 @@ int main() {
             h->SetBinContent(i,j, Mag[i][j]);
         }
     }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
