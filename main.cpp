@@ -14,7 +14,7 @@ int main() {
 // TH: void greet() { std::cout << "Hallo Leonie" << std::endl;
 //#vonvonvonvon
 
-//this code is brought to you by PEPSI MAX
+//noooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 
 
 
@@ -34,6 +34,7 @@ int main() {
     double m= 7; // Massensegment der Platte
     double g; //Feld
     double eps = pow(10,-4); //epsilon
+    int x3, y3;
 
 
     //nur noch 2D
@@ -47,10 +48,11 @@ int main() {
     double GY[w][w];
     double T[w][w];
     double Mag[w][w];
+    double Cos[w][w];
 
     // Eingabeshit fragen, dann aber oben ab = rauskommenteirtn
  //     cout << "Wie lang soll die Platte sein?";
- //     scanf("%i", &ll)
+ //     scanf("%i", &l)
  //     cout << "Bei welchem X Wert beginnt die Platte?";
  //     scanf("%i", &x);
  //     cout << "Bei welchem Y Wert liegt die ertse Platte;"
@@ -59,6 +61,10 @@ int main() {
  //     scanf("%i", &y2);
  //     cout << "Wie gross ist die Unterteilung? Der Wert sollte grosser als X+laenge udn das groessere Y sein.";
  //     scanf("%i", &w);
+//     cout << "y koordinate des startpunktes";
+//     scanf("%i", &y3)
+    //     cout << "x komponente des startpunktes";
+    //     scanf("%i", &x3)
 
 
     //initialisieren Koordinatensystem
@@ -119,6 +125,7 @@ int main() {
                             GY[i2][j2] = (G * M[i2][j2]) / (Y[i2][j2] * Y[i2][j2]);
                             T[i2][j2] = atan(Y[i2][j2] / X[i2][j2]);
                             Mag[i2][j2] = sqrt(X[i2][j2] * X[i2][j2] + Y[i2][j2] * X[i2][j2]);
+                            Cos[i2][j2] = acos(GX[i2][j2]/Mag[i2][j2]);
                             //F[i][j] = GX[i][j] * mm;
                             //cout << i2, j2;
                         }
@@ -133,6 +140,7 @@ int main() {
                             GY[i2][j2] = (G * M[i2][j2]) / (Y[i2][j2] * Y[i2][j2]);
                             T[i2][j2] = atan(Y[i2][j2] / X[i2][j2]);
                             Mag[i2][j2] = sqrt(X[i2][j2] * X[i2][j2] + Y[i2][j2] * X[i2][j2]);
+                            Cos[i2][j2] = acos(GX[i2][j2]/Mag[i2][j2]);
                             //cout << i2, j2;
                         }
                     }
@@ -160,6 +168,184 @@ int main() {
             h->SetBinContent(i,j, Mag[i][j]);
         }
     }
+
+
+// aber hier laeift es schief
+
+/*
+// path
+//haengt irgendwie davon ab wierum der array laeuft, wie geht das jetzt weiter?
+//    while(break){
+        if(X[x3][y3]>0 && Y[x3][y3] >0){
+                x3=x3+1;
+                y3=y3+1;
+        }
+        if(X[x3][y3]>0 && Y[x3][y3] <0){
+            x3=x3+1;
+            y3=y3-1;
+        }
+        if(X[x3][y3]<0 && Y[x3][y3] >0){
+            x3=x3-1;
+            y3=y3+1;
+        }
+        if(X[x3][y3]<0 && Y[x3][y3] <0){
+            x3=x3-1;
+            y3=y3-1;
+        }
+        if(X[x3][y3]==0 && Y[x3][y3] >0){
+            x3=x3;
+            y3=y3+1;
+        }
+        if(X[x3][y3]==0 && Y[x3][y3] <0){
+            x3=x3;
+            y3=y3-1;
+        }
+        if(X[x3][y3]==0 && Y[x3][y3] ==0){
+            x3=x3;
+            y3=y3;
+        }
+        if(X[x3][y3]>0 && Y[x3][y3] ==0){
+            x3=x3+1;
+            y3=y3;
+        }
+        if(X[x3][y3]<0 && Y[x3][y3] ==0){
+            x3=x3-1;
+            y3=y3;
+        }
+    }
+
+
+    //Koordinatensystem initialisieren inhomogen
+
+    // warum ist hier w nicht declared????
+    double M3[w][w];
+    double X3[w][w];
+    double Y3[w][w];
+    double GX3[w][w];
+    double GY3[w][w];
+    double T3[w][w];
+    double Mag3[w][w];
+    double Cos3[w][w]
+
+
+    //initialisieren Koordinatensystem nhomogen
+    // ALL the ARRAYS
+    for (i = 0; i < w; i++) {
+        for (j = 0; j < 100; j++) {
+            M3[i][j] = 0; //Masse also PLatten
+            X3[i][j] = 0; // x Komponente Vektor
+            Y3[i][j] = 0; //Y Komponente Vektor
+            GX3[i][j] = 0; //Feld X Komponente
+            GY3[i][j] = 0; //Feld Y KOmponente
+            T3[i][j] = 0; // Winkel zwischen X und Y komponente
+            Mag3[i][j] = 0; // Laenge Vektor
+            Cos3[i][j] = 0;
+        }
+    }
+
+    //Platten initialisierenn ist halt hsslicher inhomogen
+
+       for(j=0; j<w; j++){
+               if(j=y1 || j=y2){
+                   M3[29][j] = 1;
+                   M3[30][j] = 1;
+                   M3[31][j] = 1;
+                   M3[32][j] = 1;
+                   M3[33][j] = 1;
+                   //////////////// 1
+                   M3[34][j] = 2;
+                   M3[35][j] = 2;
+                   M3[36][j] = 2;
+                   M3[37][j] = 2;
+                   M3[38][j] = 2;
+                   /////////////////// 2
+                   M3[39][j] = 3;
+                   M3[40][j] = 3;
+                   M3[41][j] = 3;
+                   M3[42][j] = 3;
+                   M3[43][j] = 3;
+                   ////////////////  3
+                   M3[44][j] = 4;
+                   M3[45][j] = 4;
+                   M3[46][j] = 4;
+                   M3[47][j] = 4;
+                   M3[48][j] = 4;
+                   /////////////////  4
+                   M3[49][j] = 5;
+                   M3[50][j] = 5;
+                   M3[51][j] = 5;
+                   M3[52][j] = 5;
+                   M3[52][j] = 5;
+                   //////////////////  5
+                   M3[54][j] = 6;
+                   M3[55][j] = 6;
+                   M3[56][j] = 6;
+                   M3[57][j] = 6;
+                   M3[58][j] = 6;
+                   /////////////////////  6
+                   M3[59][j] = 7;
+                   M3[60][j] = 7;
+                   M3[61][j] = 7;
+                   M3[62][j] = 7;
+                   M3[63][j] = 7;
+                   //////////////////  7
+                   M3[64][j] = 8;
+                   M3[65][j] = 8;
+                   M3[66][j] = 8;
+                   M3[67][j] = 8;
+                   M3[68][j] = 8;
+                   //////////////////  8
+
+
+
+               }
+       }
+
+
+
+// am anfang habe ihc GX und so geprinted und zwischendurch kamen Buchstaben? aber ka ob es wirklich GX war weil da noch anders zeug drinnnen war.
+
+    //WARUM IST NICHTS DECLARED????????????????????????????????
+    for(i1=0; i1<w; i1++){
+        for(j1=0; j1<w; j1++){
+            for(j2=0; j2<w; j2++){
+                if(j2=y1){
+                    for(i2=29; i2<69; i2++) {
+                        X3[i2][j2] = i2 - i1;
+                        Y3[i2][j2] = j2 - j1;
+                        if(X3[i2][j2] !=0 && Y3[i2][j2] !=0) {
+                            GX3[i2][j2] = (G * M3[i2][j2]) / (X3[i2][j2] * X3[i2][j2]); //feld(i2,j2i2])
+                            GY3[i2][j2] = (G * M3[i2][j2]) / (Y3[i2][j2] * Y3[i2][j2]);
+                            T3[i2][j2] = atan(Y3[i2][j2] / X3[i2][j2]);
+                            Mag3[i2][j2] = sqrt(X3[i2][j2] * X3[i2][j2] + Y3[i2][j2] * X3[i2][j2]);
+                            Cos3[i2][j2] = acos(GX[i2][j2]/Mag3[i2][j2]);
+                            //F[i][j] = GX[i][j] * mm;
+                            //cout << i2, j2;
+                        }
+                    }
+                }
+                if(j2=y2){
+                    for(i2=29; i2<69; i2++) {
+                        X[i2][j2] = i2 - i1;
+                        Y[i2][j2] = j2 - j1;
+                        if(X3[i2][j2] !=0 && Y3[i2][j2] !=0) {
+                            GX3[i2][j2] = (G * M3[i2][j2]) / (X3[i2][j2] * X3[i2][j2]);
+                            GY3[i2][j2] = (G * M3[i2][j2]) / (Y3[i2][j2] * Y3[i2][j2]);
+                            T3[i2][j2] = atan(Y3[i2][j2] / X3[i2][j2]);
+                            Mag3[i2][j2] = sqrt(X3[i2][j2] * X3[i2][j2] + Y3[i2][j2] * X3[i2][j2]);
+                            Cos3[i2][j2] = acos(GX[i2][j2]/Mag[i2][j2]);
+                            //cout << i2, j2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+*/
+
 
 
 

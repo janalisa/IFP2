@@ -48,26 +48,26 @@ int main() {
 
     //Koordinatensystem initialisieren
 
-    double M[i][j];
-    double X[i][j];
-    double Y[i][j];
-    double GX[i][j];
-    double GY[i][j];
-    double T[i][j];
-    double Mag[i][j];
+    double M3[i][j];
+    double X3[i][j];
+    double Y3[i][j];
+    double GX3[i][j];
+    double GY3[i][j];
+    double T3[i][j];
+    double Mag3[i][j];
 
 
     //initialisieren Koordinatensystem
     // ALL the ARRAYS
     for (i = 0; i < w; i++) {
         for (j = 0; j < 100; j++) {
-            M[i][j] = 0; //Masse also PLatten
-            X[i][j] = 0; // x Komponente Vektor
-            Y[i][j] = 0; //Y Komponente Vektor
-            GX[i][j] = 0; //Feld X Komponente
-            GY[i][j] = 0; //Feld Y KOmponente
-            T[i][j] = 0; // Winkel zwischen X und Y komponente
-            Mag[i][j] = 0; // Laenge Vektor
+            M3[i][j] = 0; //Masse also PLatten
+            X3[i][j] = 0; // x Komponente Vektor
+            Y3[i][j] = 0; //Y Komponente Vektor
+            GX3[i][j] = 0; //Feld X Komponente
+            GY3[i][j] = 0; //Feld Y KOmponente
+            T3[i][j] = 0; // Winkel zwischen X und Y komponente
+            Mag3[i][j] = 0; // Laenge Vektor
         }
     }
 */
@@ -75,53 +75,53 @@ int main() {
 
  /*   for(j=0; j<w; j++){
             if(j=y1 || j=y2){
-                M[29][j] = 1;
-                M[30][j] = 1;
-                M[31][j] = 1;
-                M[32][j] = 1;
-                M[33][j] = 1;
+                M3[29][j] = 1;
+                M3[30][j] = 1;
+                M3[31][j] = 1;
+                M3[32][j] = 1;
+                M3[33][j] = 1;
                 //////////////// 1
-                M[34][j] = 2;
-                M[35][j] = 2;
-                M[36][j] = 2;
-                M[37][j] = 2;
-                M[38][j] = 2;
+                M3[34][j] = 2;
+                M3[35][j] = 2;
+                M3[36][j] = 2;
+                M3[37][j] = 2;
+                M3[38][j] = 2;
                 /////////////////// 2
-                M[39][j] = 3;
-                M[40][j] = 3;
-                M[41][j] = 3;
-                M[42][j] = 3;
-                M[43][j] = 3;
+                M3[39][j] = 3;
+                M3[40][j] = 3;
+                M3[41][j] = 3;
+                M3[42][j] = 3;
+                M3[43][j] = 3;
                 ////////////////  3
-                M[44][j] = 4;
-                M[45][j] = 4;
-                M[46][j] = 4;
-                M[47][j] = 4;
-                M[48][j] = 4;
+                M3[44][j] = 4;
+                M3[45][j] = 4;
+                M3[46][j] = 4;
+                M3[47][j] = 4;
+                M3[48][j] = 4;
                 /////////////////  4
-                M[49][j] = 5;
-                M[50][j] = 5;
-                M[51][j] = 5;
-                M[52][j] = 5;
-                M[52][j] = 5;
+                M3[49][j] = 5;
+                M3[50][j] = 5;
+                M3[51][j] = 5;
+                M3[52][j] = 5;
+                M3[52][j] = 5;
                 //////////////////  5
-                M[54][j] = 6;
-                M[55][j] = 6;
-                M[56][j] = 6;
-                M[57][j] = 6;
-                M[58][j] = 6;
+                M3[54][j] = 6;
+                M3[55][j] = 6;
+                M3[56][j] = 6;
+                M3[57][j] = 6;
+                M3[58][j] = 6;
                 /////////////////////  6
-                M[59][j] = 7;
-                M[60][j] = 7;
-                M[61][j] = 7;
-                M[62][j] = 7;
-                M[63][j] = 7;
+                M3[59][j] = 7;
+                M3[60][j] = 7;
+                M3[61][j] = 7;
+                M3[62][j] = 7;
+                M3[63][j] = 7;
                 //////////////////  7
-                M[64][j] = 8;
-                M[65][j] = 8;
-                M[66][j] = 8;
-                M[67][j] = 8;
-                M[68][j] = 8;
+                M3[64][j] = 8;
+                M3[65][j] = 8;
+                M3[66][j] = 8;
+                M3[67][j] = 8;
+                M3[68][j] = 8;
                 //////////////////  8
 
 

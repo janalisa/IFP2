@@ -4,7 +4,7 @@
 
 
 #include "feld.h"
-
+/*
 //Brauche ich hier 2 Values oder 4 oder 3? Weil ihc wuerde ja gerne den Ort und das Feld speihenr...
 
 void feld::getvalue(double X, double Y){
