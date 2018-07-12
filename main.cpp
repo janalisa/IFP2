@@ -67,6 +67,8 @@ int main() {
     //     scanf("%i", &x3)
 
 
+
+ /*
     //initialisieren Koordinatensystem
     // ALL the ARRAYS
     for(i=0; i<w; i++) {
@@ -148,17 +150,20 @@ int main() {
             }
         }
     }
+*/
+
+
 
 //ab hier lauft glaube ihc def was schief.
 
-
+/*
 // Spiegeln Betrag
         for(int k=0; k<w/2; k++){
             for(int l=0; l<w/2; l++){
                 Mag[k][l] = Mag[k][l] + Mag[w-k][l] + Mag[k][w-l] + Mag[w-k][w-l];
             }
-    }
-
+    }*/
+/*
 //Bild vllt vllt auch bullshit
 //warum kommt kein Bild?
 
@@ -168,51 +173,58 @@ int main() {
             h->SetBinContent(i,j, Mag[i][j]);
         }
     }
-
+*/
 
 // aber hier laeift es schief
 
-/*
+
 // path
 //haengt irgendwie davon ab wierum der array laeuft, wie geht das jetzt weiter?
+/*
 //    while(break){
-        if(X[x3][y3]>0 && Y[x3][y3] >0){
-                x3=x3+1;
-                y3=y3+1;
-        }
-        if(X[x3][y3]>0 && Y[x3][y3] <0){
-            x3=x3+1;
-            y3=y3-1;
-        }
-        if(X[x3][y3]<0 && Y[x3][y3] >0){
-            x3=x3-1;
-            y3=y3+1;
-        }
-        if(X[x3][y3]<0 && Y[x3][y3] <0){
-            x3=x3-1;
-            y3=y3-1;
-        }
-        if(X[x3][y3]==0 && Y[x3][y3] >0){
-            x3=x3;
-            y3=y3+1;
-        }
-        if(X[x3][y3]==0 && Y[x3][y3] <0){
-            x3=x3;
-            y3=y3-1;
-        }
-        if(X[x3][y3]==0 && Y[x3][y3] ==0){
-            x3=x3;
-            y3=y3;
-        }
-        if(X[x3][y3]>0 && Y[x3][y3] ==0){
-            x3=x3+1;
-            y3=y3;
-        }
-        if(X[x3][y3]<0 && Y[x3][y3] ==0){
-            x3=x3-1;
-            y3=y3;
-        }
-    }
+            for(Y[x3][y3] != y1 && Y[x3][y3] != y2) {
+                for (X[x3][y3] < x || X[x3][y3] > x + l - 1) {
+
+
+                    if (X[x3][y3] > 0 && Y[x3][y3] > 0) {
+                        x3 = x3 + 1;
+                        y3 = y3 + 1;
+                    }
+                    if (X[x3][y3] > 0 && Y[x3][y3] < 0) {
+                        x3 = x3 + 1;
+                        y3 = y3 - 1;
+                    }
+                    if (X[x3][y3] < 0 && Y[x3][y3] > 0) {
+                        x3 = x3 - 1;
+                        y3 = y3 + 1;
+                    }
+                    if (X[x3][y3] < 0 && Y[x3][y3] < 0) {
+                        x3 = x3 - 1;
+                        y3 = y3 - 1;
+                    }
+                    if (X[x3][y3] == 0 && Y[x3][y3] > 0) {
+                        x3 = x3;
+                        y3 = y3 + 1;
+                    }
+                    if (X[x3][y3] == 0 && Y[x3][y3] < 0) {
+                        x3 = x3;
+                        y3 = y3 - 1;
+                    }
+                    if (X[x3][y3] == 0 && Y[x3][y3] == 0) {
+                        x3 = x3;
+                        y3 = y3;
+                    }
+                    if (X[x3][y3] > 0 && Y[x3][y3] == 0) {
+                        x3 = x3 + 1;
+                        y3 = y3;
+                    }
+                    if (X[x3][y3] < 0 && Y[x3][y3] == 0) {
+                        x3 = x3 - 1;
+                        y3 = y3;
+                    }
+                }
+            }
+*/
 
 
     //Koordinatensystem initialisieren inhomogen
@@ -225,7 +237,7 @@ int main() {
     double GY3[w][w];
     double T3[w][w];
     double Mag3[w][w];
-    double Cos3[w][w]
+    double Cos3[w][w];
 
 
     //initialisieren Koordinatensystem nhomogen
@@ -246,7 +258,7 @@ int main() {
     //Platten initialisierenn ist halt hsslicher inhomogen
 
        for(j=0; j<w; j++){
-               if(j=y1 || j=y2){
+               if(j==y2){
                    M3[29][j] = 1;
                    M3[30][j] = 1;
                    M3[31][j] = 1;
@@ -299,13 +311,66 @@ int main() {
 
 
                }
+           if(j==y1){
+               M3[29][j] = 1;
+               M3[30][j] = 1;
+               M3[31][j] = 1;
+               M3[32][j] = 1;
+               M3[33][j] = 1;
+               //////////////// 1
+               M3[34][j] = 2;
+               M3[35][j] = 2;
+               M3[36][j] = 2;
+               M3[37][j] = 2;
+               M3[38][j] = 2;
+               /////////////////// 2
+               M3[39][j] = 3;
+               M3[40][j] = 3;
+               M3[41][j] = 3;
+               M3[42][j] = 3;
+               M3[43][j] = 3;
+               ////////////////  3
+               M3[44][j] = 4;
+               M3[45][j] = 4;
+               M3[46][j] = 4;
+               M3[47][j] = 4;
+               M3[48][j] = 4;
+               /////////////////  4
+               M3[49][j] = 5;
+               M3[50][j] = 5;
+               M3[51][j] = 5;
+               M3[52][j] = 5;
+               M3[52][j] = 5;
+               //////////////////  5
+               M3[54][j] = 6;
+               M3[55][j] = 6;
+               M3[56][j] = 6;
+               M3[57][j] = 6;
+               M3[58][j] = 6;
+               /////////////////////  6
+               M3[59][j] = 7;
+               M3[60][j] = 7;
+               M3[61][j] = 7;
+               M3[62][j] = 7;
+               M3[63][j] = 7;
+               //////////////////  7
+               M3[64][j] = 8;
+               M3[65][j] = 8;
+               M3[66][j] = 8;
+               M3[67][j] = 8;
+               M3[68][j] = 8;
+               //////////////////  8
+
+
+
+           }
        }
 
 
 
 // am anfang habe ihc GX und so geprinted und zwischendurch kamen Buchstaben? aber ka ob es wirklich GX war weil da noch anders zeug drinnnen war.
 
-    //WARUM IST NICHTS DECLARED????????????????????????????????
+    //WARUM IST NICHTS DECLARED???????????????????????????????? ok irgendwie funktioniert das jetzt??????
     for(i1=0; i1<w; i1++){
         for(j1=0; j1<w; j1++){
             for(j2=0; j2<w; j2++){
@@ -320,7 +385,7 @@ int main() {
                             Mag3[i2][j2] = sqrt(X3[i2][j2] * X3[i2][j2] + Y3[i2][j2] * X3[i2][j2]);
                             Cos3[i2][j2] = acos(GX[i2][j2]/Mag3[i2][j2]);
                             //F[i][j] = GX[i][j] * mm;
-                            //cout << i2, j2;
+                            cout << i2, j2;
                         }
                     }
                 }
@@ -334,7 +399,7 @@ int main() {
                             T3[i2][j2] = atan(Y3[i2][j2] / X3[i2][j2]);
                             Mag3[i2][j2] = sqrt(X3[i2][j2] * X3[i2][j2] + Y3[i2][j2] * X3[i2][j2]);
                             Cos3[i2][j2] = acos(GX[i2][j2]/Mag[i2][j2]);
-                            //cout << i2, j2;
+                            cout << i2, j2;
                         }
                     }
                 }
@@ -344,7 +409,7 @@ int main() {
 
 
 
-*/
+
 
 
 
