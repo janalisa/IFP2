@@ -2,6 +2,7 @@
 #include <cmath>
 //#include "vektor.h"
 #include "TH2.h"
+#include "TCanvas.h"
 #include "feld.h"
 using namespace std;
 
@@ -19,13 +20,13 @@ int main() {
 
 
     //int n=10; //Unterteilung
-    int l =5; //laenge PLatte
+    int l =75; //laenge PLatte
    // int h=4; //hoehe PLatte
     int w =100; //Kantenlaenge Wuerfel
     int i, j, i1, i2, j1, j2; //Laufindizes
-    int x =2; //naechste ecke am nullpunkt in x richtung
-    int y1 =3;
-    int y2 =6; //nachste ecke am nullpunkt in y richtung, v2>v1
+    int x =10; //naechste ecke am nullpunkt in x richtung
+    int y1 =30;
+    int y2 =60; //nachste ecke am nullpunkt in y richtung, v2>v1
   //  int z=4; //naechste ecke am nullpunkt in z richtung
     double rsqr; //Abstand segmente quadrat
     float d; //Abstand der PLatten
@@ -68,11 +69,11 @@ int main() {
 
 
 
- /*
+
     //initialisieren Koordinatensystem
     // ALL the ARRAYS
     for(i=0; i<w; i++) {
-        for (j = 0; j < 100; j++) {
+        for (j = 0; j < w; j++) {
             M[i][j] = 0; //Masse also PLatten
             X[i][j] =0; // x Komponente Vektor
             Y[i][j] = 0; //Y Komponente Vektor
@@ -88,12 +89,8 @@ int main() {
         //muss noch gucken was ich jetzt mache
 
    for(i=x-1; i<x+l; i++){
-        if(j=y1){
-            M[i][j]=m;
-        }
-        if(j=y2){
-            M[i][j]=m;
-        }
+            M[i][y1]=m;
+            M[i][y2]=m;
     }
 
 
@@ -115,12 +112,23 @@ int main() {
 //    double mm = 9; // Masse vom Teilchen
 
 // am anfang habe ihc GX und so geprinted und zwischendurch kamen Buchstaben? aber ka ob es wirklich GX war weil da noch anders zeug drinnnen war.
-    for(i1=0; i1<w/2; i1++){
-        for(j1=0; j1<w/2; j1++){
-            for(j2=0; j2<w; j2++){
-                if(j2=y1){
-                    for(i2=x-1; i2<x+l; i2++) {
-                        X[i2][j2] = i2 - i1;
+    for(i1=0; i1<w; i1++){
+        for(j1=0; j1<w; j1++){
+
+            if (M[i1][j1] != 0) continue;
+
+
+            for(i2=0; i2<w; i2++){
+                    for(j2=0; j2<w; j2++) {
+                        if (M[i2][j2] == 0)
+                        {
+                           double r = sqrt((i2-i1)*(i2-i1)+(j2-j1)*(j2-j1));
+                           double force= M[i2][j2]*G/pow(r,3);
+                           X[i2][j2] += force*(i2-i1);
+                           Y[i2][j2] += force*(j2-j1);
+
+                        }
+                     /*   X[i2][j2] = i2 - i1;
                         Y[i2][j2] = j2 - j1;
                         if(X[i2][j2] !=0 && Y[i2][j2] !=0) {
                             GX[i2][j2] = (G * M[i2][j2]) / (X[i2][j2] * X[i2][j2]); //feld(i2,j2i2])
@@ -145,36 +153,32 @@ int main() {
                             Cos[i2][j2] = acos(GX[i2][j2]/Mag[i2][j2]);
                             //cout << i2, j2;
                         }
-                    }
+                    }*/
                 }
             }
         }
     }
-*/
+
 
 
 
 //ab hier lauft glaube ihc def was schief.
 
-/*
-// Spiegeln Betrag
-        for(int k=0; k<w/2; k++){
-            for(int l=0; l<w/2; l++){
-                Mag[k][l] = Mag[k][l] + Mag[w-k][l] + Mag[k][w-l] + Mag[w-k][w-l];
-            }
-    }*/
-/*
+
+
 //Bild vllt vllt auch bullshit
 //warum kommt kein Bild?
 
     TH2* h = new TH2F("h2", "Feldstaerke", w, 0, w, w, 0, w);
     for(i=0; i<w;i++){
         for(j=0; j<w; j++){
-            h->SetBinContent(i,j, Mag[i][j]);
+            h->SetBinContent(i,j, sqrt(X[i][j]*X[i][j] + Y[i][j]*Y[i][j]));
         }
     }
-*/
-
+    TCanvas* c = new TCanvas("c","c",800,600);
+    h->Draw("col4z");
+    cout << "bla" << endl;
+    c->SaveAs("feldstaerke.png");
 // aber hier laeift es schief
 
 
@@ -228,7 +232,7 @@ int main() {
 
 
     //Koordinatensystem initialisieren inhomogen
-
+/*
     // warum ist hier w nicht declared????
     double M3[w][w];
     double X3[w][w];
@@ -410,7 +414,7 @@ int main() {
 
 
 
-
+*/
 
 
 
