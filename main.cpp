@@ -8,25 +8,196 @@ using namespace std;
 
 //#experimentelle informatik
 
+
+
+/*double rk(double f){
+    double k1, k2, k3, k4, z1, z2;
+
+
+}*/
+
+/*double functi(){
+    double z1, z2
+}*/
+
+
+// Diese Funktion erstellt den Passenden Kondensator
+double kondensator(int v, int w, int o, int q, int y1, int y2, int x, int l, double m){
+    double M[w][w];
+
+    for(int i=0; i<w; i++) {
+        for (int j = 0; j < w; j++) {
+            M[i][j] = 0;
+
+        }
+    }
+
+
+    if(v==1){
+        for(int i=x-1; i<x+l; i++){
+            M[i][y1]=m;
+            M[i][y2]=m;
+        }
+
+    }
+    if(v==2){
+                M[29][y2] = 1;
+                M[30][y2] = 1;
+                M[31][y2] = 1;
+                M[32][y2] = 1;
+                M[33][y2] = 1;
+                //////////////// 1
+                M[34][y2] = 2;
+                M[35][y2] = 2;
+                M[36][y2] = 2;
+                M[37][y2] = 2;
+                M[38][y2] = 2;
+                /////////////////// 2
+                M[39][y2] = 3;
+                M[40][y2] = 3;
+                M[41][y2] = 3;
+                M[42][y2] = 3;
+                M[43][y2] = 3;
+                ////////////////  3
+                M[44][y2] = 4;
+                M[45][y2] = 4;
+                M[46][y2] = 4;
+                M[47][y2] = 4;
+                M[48][y2] = 4;
+                /////////////////  4
+                M[49][y2] = 5;
+                M[50][y2] = 5;
+                M[51][y2] = 5;
+                M[52][y2] = 5;
+                M[52][y2] = 5;
+                //////////////////  5
+                M[54][y2] = 6;
+                M[55][y2] = 6;
+                M[56][y2] = 6;
+                M[57][y2] = 6;
+                M[58][y2] = 6;
+                /////////////////////  6
+                M[59][y2] = 7;
+                M[60][y2] = 7;
+                M[61][y2] = 7;
+                M[62][y2] = 7;
+                M[63][y2] = 7;
+                //////////////////  7
+                M[64][y2] = 8;
+                M[65][y2] = 8;
+                M[66][y2] = 8;
+                M[67][y2] = 8;
+                M[68][y2] = 8;
+                //////////////////  8
+
+
+                M[29][y1] = 1;
+                M[30][y1] = 1;
+                M[31][y1] = 1;
+                M[32][y1] = 1;
+                M[33][y1] = 1;
+                //////////////// 1
+                M[34][y1] = 2;
+                M[35][y1] = 2;
+                M[36][y1] = 2;
+                M[37][y1] = 2;
+                M[38][y1] = 2;
+                /////////////////// 2
+                M[39][y1] = 3;
+                M[40][y1] = 3;
+                M[41][y1] = 3;
+                M[42][y1] = 3;
+                M[43][y1] = 3;
+                ////////////////  3
+                M[44][y1] = 4;
+                M[45][y1] = 4;
+                M[46][y1] = 4;
+                M[47][y1] = 4;
+                M[48][y1] = 4;
+                /////////////////  4
+                M[49][y1] = 5;
+                M[50][y1] = 5;
+                M[51][y1] = 5;
+                M[52][y1] = 5;
+                M[52][y1] = 5;
+                //////////////////  5
+                M[54][y1] = 6;
+                M[55][y1] = 6;
+                M[56][y1] = 6;
+                M[57][y1] = 6;
+                M[58][y1] = 6;
+                /////////////////////  6
+                M[59][y1] = 7;
+                M[60][y1] = 7;
+                M[61][y1] = 7;
+                M[62][y1] = 7;
+                M[63][y1] = 7;
+                //////////////////  7
+                M[64][y1] = 8;
+                M[65][y1] = 8;
+                M[66][y1] = 8;
+                M[67][y1] = 8;
+                M[68][y1] = 8;
+                //////////////////  8
+
+    }
+    if(v=3){ //Achteck
+        M[20][20] = 1;
+        M[21][20] = 1;
+        M[22][20] = 1;
+        M[23][20] = 1;
+        M[24][21] = 1;
+
+        M[25][22] = 2;
+        M[26][23] = 2;
+        M[26][24] = 2;
+        M[26][25] = 2;
+        M[26][26] = 2;
+
+        M[25][27] = 3;
+        M[24][28] = 3;
+        M[23][29] = 3;
+        M[22][29] = 3;
+        M[21][29] = 3;
+        ////////////////  3
+        M[20][29] = 4;
+        M[19][28] = 4;
+        M[18][27] = 4;
+        M[17][26] = 4;
+        M[17][25] = 4;
+        /////////////////  4
+        M[17][24] = 5;
+        M[17][23] = 5;
+        M[18][22] = 5;
+        M[19][21] = 5;
+
+    }
+    if(v==4){
+        M[o][q]=m;
+        M[y1][y2] =m;
+        M[x][l] = m;
+
+    }
+
+   return M[][]; //Wie kriege ich M raus
+}
+
+
+
+
+
+
+
 int main() {
-// TH: wenn Du stdio.h includest, dann wird es C, bei C++ heißt die Funktionalitaet iostream
-
-//#include<Hallo Torsten>
-// TH: void greet() { std::cout << "Hallo Leonie" << std::endl;
-//#vonvonvonvon
-
-//noooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 
 
-
-    //int n=10; //Unterteilung
-    int l =75; //laenge PLatte
+    int l; //=75; //laenge PLatte
    // int h=4; //hoehe PLatte
-    int w =100; //Kantenlaenge Wuerfel
+    int w; //=100; //Kantenlaenge Wuerfel
     int i, j, i1, i2, j1, j2; //Laufindizes
-    int x =10; //naechste ecke am nullpunkt in x richtung
-    int y1 =30;
-    int y2 =60; //nachste ecke am nullpunkt in y richtung, v2>v1
+    int x; //=10; //naechste ecke am nullpunkt in x richtung
+    int y1; //=30;
+    int y2; //=60; //nachste ecke am nullpunkt in y richtung, v2>v1
   //  int z=4; //naechste ecke am nullpunkt in z richtung
     double rsqr; //Abstand segmente quadrat
     float d; //Abstand der PLatten
@@ -36,13 +207,16 @@ int main() {
     double g; //Feld
     double eps = pow(10,-4); //epsilon
     int x3, y3;
+    int v;
+    int q;
+    int o;
 
 
     //nur noch 2D
 
     //Koordinatensystem initialisieren
 
-    double M[w][w];
+    //double M[w][w];
     double X[w][w];
     double Y[w][w];
     double GX[w][w];
@@ -52,29 +226,79 @@ int main() {
     double Cos[w][w];
 
     // Eingabeshit fragen, dann aber oben ab = rauskommenteirtn
- //     cout << "Wie lang soll die Platte sein?";
- //     scanf("%i", &l)
- //     cout << "Bei welchem X Wert beginnt die Platte?";
- //     scanf("%i", &x);
- //     cout << "Bei welchem Y Wert liegt die ertse Platte;"
- //     scanf("%i", &y1);
- //     cout << "Bei welchem Y Wert liegt die zweite Platte";
- //     scanf("%i", &y2);
- //     cout << "Wie gross ist die Unterteilung? Der Wert sollte grosser als X+laenge udn das groessere Y sein.";
- //     scanf("%i", &w);
-//     cout << "y koordinate des startpunktes";
-//     scanf("%i", &y3)
-    //     cout << "x komponente des startpunktes";
-    //     scanf("%i", &x3)
+    cout << "Fuer einen homogenen Kondensator bitte die 1 druecken, fuer einen inhomogenen Kondensator bitte die 2 druecken, fuer ein Achteck bitte die 3 druecken, fuer 3 Punkte bitte die 4 druecken."<< endl;
+    scanf("%i", &v);
+    cout << "Wie gross ist die Unterteilung? Der Wert sollte grosser als X+laenge und das groessere Y sein."<< endl;
+    scanf("%i", &w);
+    if(v==1){
+        cout << "Wie lang soll die Platte sein?"<< endl;
+        scanf("%i", &l);
+        cout << "Bei welchem X Wert beginnt die Platte?"<< endl;
+        scanf("%i", &x);
+        cout << "Bei welchem Y Wert liegt die ertse Platte;"<< endl;
+        scanf("%i", &y1);
+        cout << "Bei welchem Y Wert liegt die zweite Platte"<< endl;
+        scanf("%i", &y2);
+        o=0;
+        q=0;
+        if(x+l>w || y1>w ||y2>w){
+            cout<< "Idiot"<< endl;
+        }
+
+    }
+    if(v==2){
+        cout << "Hierfuer wurde ein Standdardkondensator erstellt, um mehr als den Ort der y komponenten der Kondensatoren einzustellen bitte nach Anleitung in den Programmcode tippen";
+        cout << "Bei welchem Y Wert liegt die ertse Platte;"<< endl;
+        scanf("%i", &y1);
+        cout << "Bei welchem Y Wert liegt die zweite Platte"<< endl;
+        scanf("%i", &y2);
+        o=0;
+        q=0;
+        x=0;
+        l=0;
+        if( y1>w ||y2>w){
+            cout<< "Idiot";
+        }
+    }
+    if(v==3){
+        cout << "Hierfuer wurde ein Standdardachteck erstellt, um mehr einzustellen bitte nach Anleitung in den Programmcode tippen"<< endl;
+        o=0;
+        q=0;
+        y1=0;
+        y2=0;
+        x=0;
+        l=0;
+    }
+    if(v==4){ //w, o, q, y1, y2, x, l,
+        cout << "Was ist die x Koponente des ersten Punktes" << endl;
+        scanf("%i", &o);
+        cout << "Was ist die y Koponente des ersten Punktes"<< endl;
+        scanf("%i", &q);
+        cout << "Was ist die x Koponente des zweiten Punktes"<< endl;
+        scanf("%i", &y1);
+        cout << "Was ist die y Koponente des zweiten Punktes"<< endl;
+        scanf("%i", &y2);
+        cout << "Was ist die x Koponente des dritten Punktes"<< endl;
+        scanf("%i", &x);
+        cout << "Was ist die y Koponente des dritten Punktes"<< endl;
+        scanf("%i", &l);
+    }
+
+
+
+ //    cout << "y koordinate des startpunktes";
+ //    scanf("%i", &y3)
+ //          cout << "x komponente des startpunktes";
+ //        scanf("%i", &x3)
 
 
 
 
     //initialisieren Koordinatensystem
     // ALL the ARRAYS
-    for(i=0; i<w; i++) {
+   for(i=0; i<w; i++) {
         for (j = 0; j < w; j++) {
-            M[i][j] = 0; //Masse also PLatten
+           // M[i][j] = 0; //Masse also PLatten
             X[i][j] =0; // x Komponente Vektor
             Y[i][j] = 0; //Y Komponente Vektor
             GX[i][j] = 0; //Feld X Komponente
@@ -88,13 +312,16 @@ int main() {
 
         //muss noch gucken was ich jetzt mache
 
-   for(i=x-1; i<x+l; i++){
+  /* for(i=x-1; i<x+l; i++){
             M[i][y1]=m;
             M[i][y2]=m;
     }
+*/
 
 
 
+
+    kondensator(v, w, o, q, y1, y2, x, l, m);
 
     //It is sometimes an appropriate response to reality to go insane. - Philip K. Dick
 
@@ -120,7 +347,7 @@ int main() {
 
             for(i2=0; i2<w; i2++){
                     for(j2=0; j2<w; j2++) {
-                        if (M[i2][j2] == 0)
+                        if (M[i2][j2] == 0) //wie kriege ihc M hin?
                         {
                            double r = sqrt((i2-i1)*(i2-i1)+(j2-j1)*(j2-j1));
                            double force= M[i2][j2]*G/pow(r,3);
@@ -128,32 +355,7 @@ int main() {
                            Y[i2][j2] += force*(j2-j1);
 
                         }
-                     /*   X[i2][j2] = i2 - i1;
-                        Y[i2][j2] = j2 - j1;
-                        if(X[i2][j2] !=0 && Y[i2][j2] !=0) {
-                            GX[i2][j2] = (G * M[i2][j2]) / (X[i2][j2] * X[i2][j2]); //feld(i2,j2i2])
-                            GY[i2][j2] = (G * M[i2][j2]) / (Y[i2][j2] * Y[i2][j2]);
-                            T[i2][j2] = atan(Y[i2][j2] / X[i2][j2]);
-                            Mag[i2][j2] = sqrt(X[i2][j2] * X[i2][j2] + Y[i2][j2] * X[i2][j2]);
-                            Cos[i2][j2] = acos(GX[i2][j2]/Mag[i2][j2]);
-                            //F[i][j] = GX[i][j] * mm;
-                            //cout << i2, j2;
-                        }
-                    }
-                }
-                if(j2=y2){
-                    for(i2=x-1; i2<x+l; i2++) {
-                        X[i2][j2] = i2 - i1;
-                        Y[i2][j2] = j2 - j1;
-                        if(X[i2][j2] !=0 && Y[i2][j2] !=0) {
-                            GX[i2][j2] = (G * M[i2][j2]) / (X[i2][j2] * X[i2][j2]);
-                            GY[i2][j2] = (G * M[i2][j2]) / (Y[i2][j2] * Y[i2][j2]);
-                            T[i2][j2] = atan(Y[i2][j2] / X[i2][j2]);
-                            Mag[i2][j2] = sqrt(X[i2][j2] * X[i2][j2] + Y[i2][j2] * X[i2][j2]);
-                            Cos[i2][j2] = acos(GX[i2][j2]/Mag[i2][j2]);
-                            //cout << i2, j2;
-                        }
-                    }*/
+
                 }
             }
         }
@@ -162,12 +364,6 @@ int main() {
 
 
 
-//ab hier lauft glaube ihc def was schief.
-
-
-
-//Bild vllt vllt auch bullshit
-//warum kommt kein Bild?
 
     TH2* h = new TH2F("h2", "Feldstaerke", w, 0, w, w, 0, w);
     for(i=0; i<w;i++){
@@ -177,9 +373,43 @@ int main() {
     }
     TCanvas* c = new TCanvas("c","c",800,600);
     h->Draw("col4z");
+    //h->Draw("ARR" );
     cout << "bla" << endl;
     c->SaveAs("feldstaerke.png");
-// aber hier laeift es schief
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    return 0;
+}
 
 
 // path
@@ -233,142 +463,6 @@ int main() {
 
     //Koordinatensystem initialisieren inhomogen
 /*
-    // warum ist hier w nicht declared????
-    double M3[w][w];
-    double X3[w][w];
-    double Y3[w][w];
-    double GX3[w][w];
-    double GY3[w][w];
-    double T3[w][w];
-    double Mag3[w][w];
-    double Cos3[w][w];
-
-
-    //initialisieren Koordinatensystem nhomogen
-    // ALL the ARRAYS
-    for (i = 0; i < w; i++) {
-        for (j = 0; j < 100; j++) {
-            M3[i][j] = 0; //Masse also PLatten
-            X3[i][j] = 0; // x Komponente Vektor
-            Y3[i][j] = 0; //Y Komponente Vektor
-            GX3[i][j] = 0; //Feld X Komponente
-            GY3[i][j] = 0; //Feld Y KOmponente
-            T3[i][j] = 0; // Winkel zwischen X und Y komponente
-            Mag3[i][j] = 0; // Laenge Vektor
-            Cos3[i][j] = 0;
-        }
-    }
-
-    //Platten initialisierenn ist halt hsslicher inhomogen
-
-       for(j=0; j<w; j++){
-               if(j==y2){
-                   M3[29][j] = 1;
-                   M3[30][j] = 1;
-                   M3[31][j] = 1;
-                   M3[32][j] = 1;
-                   M3[33][j] = 1;
-                   //////////////// 1
-                   M3[34][j] = 2;
-                   M3[35][j] = 2;
-                   M3[36][j] = 2;
-                   M3[37][j] = 2;
-                   M3[38][j] = 2;
-                   /////////////////// 2
-                   M3[39][j] = 3;
-                   M3[40][j] = 3;
-                   M3[41][j] = 3;
-                   M3[42][j] = 3;
-                   M3[43][j] = 3;
-                   ////////////////  3
-                   M3[44][j] = 4;
-                   M3[45][j] = 4;
-                   M3[46][j] = 4;
-                   M3[47][j] = 4;
-                   M3[48][j] = 4;
-                   /////////////////  4
-                   M3[49][j] = 5;
-                   M3[50][j] = 5;
-                   M3[51][j] = 5;
-                   M3[52][j] = 5;
-                   M3[52][j] = 5;
-                   //////////////////  5
-                   M3[54][j] = 6;
-                   M3[55][j] = 6;
-                   M3[56][j] = 6;
-                   M3[57][j] = 6;
-                   M3[58][j] = 6;
-                   /////////////////////  6
-                   M3[59][j] = 7;
-                   M3[60][j] = 7;
-                   M3[61][j] = 7;
-                   M3[62][j] = 7;
-                   M3[63][j] = 7;
-                   //////////////////  7
-                   M3[64][j] = 8;
-                   M3[65][j] = 8;
-                   M3[66][j] = 8;
-                   M3[67][j] = 8;
-                   M3[68][j] = 8;
-                   //////////////////  8
-
-
-
-               }
-           if(j==y1){
-               M3[29][j] = 1;
-               M3[30][j] = 1;
-               M3[31][j] = 1;
-               M3[32][j] = 1;
-               M3[33][j] = 1;
-               //////////////// 1
-               M3[34][j] = 2;
-               M3[35][j] = 2;
-               M3[36][j] = 2;
-               M3[37][j] = 2;
-               M3[38][j] = 2;
-               /////////////////// 2
-               M3[39][j] = 3;
-               M3[40][j] = 3;
-               M3[41][j] = 3;
-               M3[42][j] = 3;
-               M3[43][j] = 3;
-               ////////////////  3
-               M3[44][j] = 4;
-               M3[45][j] = 4;
-               M3[46][j] = 4;
-               M3[47][j] = 4;
-               M3[48][j] = 4;
-               /////////////////  4
-               M3[49][j] = 5;
-               M3[50][j] = 5;
-               M3[51][j] = 5;
-               M3[52][j] = 5;
-               M3[52][j] = 5;
-               //////////////////  5
-               M3[54][j] = 6;
-               M3[55][j] = 6;
-               M3[56][j] = 6;
-               M3[57][j] = 6;
-               M3[58][j] = 6;
-               /////////////////////  6
-               M3[59][j] = 7;
-               M3[60][j] = 7;
-               M3[61][j] = 7;
-               M3[62][j] = 7;
-               M3[63][j] = 7;
-               //////////////////  7
-               M3[64][j] = 8;
-               M3[65][j] = 8;
-               M3[66][j] = 8;
-               M3[67][j] = 8;
-               M3[68][j] = 8;
-               //////////////////  8
-
-
-
-           }
-       }
 
 
 
@@ -419,7 +513,32 @@ int main() {
 
 
 
-
+/*   X[i2][j2] = i2 - i1;
+                        Y[i2][j2] = j2 - j1;
+                        if(X[i2][j2] !=0 && Y[i2][j2] !=0) {
+                            GX[i2][j2] = (G * M[i2][j2]) / (X[i2][j2] * X[i2][j2]); //feld(i2,j2i2])
+                            GY[i2][j2] = (G * M[i2][j2]) / (Y[i2][j2] * Y[i2][j2]);
+                            T[i2][j2] = atan(Y[i2][j2] / X[i2][j2]);
+                            Mag[i2][j2] = sqrt(X[i2][j2] * X[i2][j2] + Y[i2][j2] * X[i2][j2]);
+                            Cos[i2][j2] = acos(GX[i2][j2]/Mag[i2][j2]);
+                            //F[i][j] = GX[i][j] * mm;
+                            //cout << i2, j2;
+                        }
+                    }
+                }
+                if(j2=y2){
+                    for(i2=x-1; i2<x+l; i2++) {
+                        X[i2][j2] = i2 - i1;
+                        Y[i2][j2] = j2 - j1;
+                        if(X[i2][j2] !=0 && Y[i2][j2] !=0) {
+                            GX[i2][j2] = (G * M[i2][j2]) / (X[i2][j2] * X[i2][j2]);
+                            GY[i2][j2] = (G * M[i2][j2]) / (Y[i2][j2] * Y[i2][j2]);
+                            T[i2][j2] = atan(Y[i2][j2] / X[i2][j2]);
+                            Mag[i2][j2] = sqrt(X[i2][j2] * X[i2][j2] + Y[i2][j2] * X[i2][j2]);
+                            Cos[i2][j2] = acos(GX[i2][j2]/Mag[i2][j2]);
+                            //cout << i2, j2;
+                        }
+                    }*/
 
 
 
@@ -569,5 +688,3 @@ int main() {
 
 
 */
-        return 0;
-    }
