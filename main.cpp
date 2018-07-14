@@ -9,15 +9,34 @@ using namespace std;
 //#experimentelle informatik
 
 
+/*double rk(double functi(double [], double [], int , double [] double []), int ti, int tf, int xi, int yi){
+    double k1[4], k2[4], k3[4], k4[4];
+    double h,t;
+    h=tf-ti;
+    t=ti;
 
-/*double rk(double f){
-    double k1, k2, k3, k4, z1, z2;
+    //k1 Berechnen
+            functi(t, xi, b[4]) //was muss ihc hier eintippen?
 
 
-}*/
 
-/*double functi(){
-    double z1, z2
+}
+
+*/
+
+
+/* a[0]=x   b[0]=dx
+ * a[1]=y   b[1]=dy
+ * a[2]=dx  b[2]=ddxx
+ * a[3]=dy  b[3]=ddyy
+ * */
+/*double functi(double a[4], double b[4], int w, double X[w][w], double Y[w][w]){ //welche davon brauche ich???
+    b[0]=a[2];
+    b[1]=a[3];
+
+    b[2]=X[][];
+    b[3]=Y[][];
+
 }*/
 
 
