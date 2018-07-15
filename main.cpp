@@ -17,8 +17,32 @@ using namespace std;
 
     //k1 Berechnen
             functi(t, xi, b[4]) //was muss ihc hier eintippen?
+            for( j=0; j<4;j++){
+                k1[j]=h+b[j];
+                a[j]=xi[j]+k1[j]/2;
+                }
+
+ //k2 Berechnen
+            functi(t, xi, b[4]) //was muss ihc hier eintippen?
+            for( j=0; j<4;j++){
+                k2[j]=h+b[j];
+                a[j]=xi[j]+k2[j]/2;
+                }
+
+     //k3 Berechnen
+        functi(t, xi, b[4]) //was muss ihc hier eintippen?
+        for( j=0; j<4;j++){
+            k3[j]=h+b[j];
+            a[j]=xi[j]+k3[j]/2;
+            }
 
 
+     //k4 Berechnen
+    functi(t, xi, b[4]) //was muss ihc hier eintippen?
+    for( j=0; j<4;j++){
+        k4[j]=h+b[j];
+        x[j] = xi[j] + k1[j]/6.0+k2[j]/3.0+k3[j]/3.0+k4[j]/6.0;
+        }
 
 }
 
@@ -41,7 +65,7 @@ using namespace std;
 
 
 // Diese Funktion erstellt den Passenden Kondensator
-double kondensator(int v, int w, int o, int q, int y1, int y2, int x, int l, double m){
+double kondensator(int v, /*int w,*/ int o, int q, int y1, int y2, int x, int l, double m){
     double M[w][w];
 
     for(int i=0; i<w; i++) {
@@ -388,6 +412,7 @@ int main() {
     for(i=0; i<w;i++){
         for(j=0; j<w; j++){
             h->SetBinContent(i,j, sqrt(X[i][j]*X[i][j] + Y[i][j]*Y[i][j]));
+            gStyle->SetPalette(ncolors == 1 && colors == 0,colors);
         }
     }
     TCanvas* c = new TCanvas("c","c",800,600);
@@ -398,11 +423,17 @@ int main() {
 
 
 
+//a[] auch hier definieren?
 
 
-
-
-
+   // cout << "Was ist die x ort  des Teilchens"<< endl;
+   // scanf("%i", &a[0]);
+    // cout << "Was ist die y ort  des Teilchens"<< endl;
+    // scanf("%i", &a[1]);
+    // cout << "Was ist die x geschwindigkeit  des Teilchens"<< endl;
+    // scanf("%i", &a[2]);
+    // cout << "Was ist die y geschwindigkeit  des Teilchens"<< endl;
+    // scanf("%i", &a[3]);y
 
 
 
