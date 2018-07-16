@@ -9,44 +9,44 @@ using namespace std;
 //#experimentelle informatik
 
 
-/*double rk(double functi(double [], double [], int , double [] double []), int ti, int tf, int xi, int yi){
+double rk(double functi(double , double [], double [], int ), double ti, double tf, int xi, int yi, int n){
     double k1[4], k2[4], k3[4], k4[4];
-    double h,t;
+    double h,t, x[n], dx[n]
     h=tf-ti;
     t=ti;
 
     //k1 Berechnen
-            functi(t, xi, b[4]) //was muss ihc hier eintippen?
-            for( j=0; j<4;j++){
-                k1[j]=h+b[j];
+            functi(t, xi, dx, n) //was muss ihc hier eintippen?
+            for( j=0; j<n;j++){
+                k1[j]=h+dx[j];
                 a[j]=xi[j]+k1[j]/2;
                 }
 
  //k2 Berechnen
-            functi(t, xi, b[4]) //was muss ihc hier eintippen?
-            for( j=0; j<4;j++){
-                k2[j]=h+b[j];
+            functi(t+h/2, x, dx,n) //was muss ihc hier eintippen?
+            for( j=0; j<n;j++){
+                k2[j]=h+dx[j];
                 a[j]=xi[j]+k2[j]/2;
                 }
 
      //k3 Berechnen
-        functi(t, xi, b[4]) //was muss ihc hier eintippen?
-        for( j=0; j<4;j++){
-            k3[j]=h+b[j];
+        functi(t, x, dx,n) //was muss ihc hier eintippen?
+        for( j=0; j<n;j++){
+            k3[j]=h+dx[j];
             a[j]=xi[j]+k3[j]/2;
             }
 
 
      //k4 Berechnen
-    functi(t, xi, b[4]) //was muss ihc hier eintippen?
-    for( j=0; j<4;j++){
-        k4[j]=h+b[j];
+    functi(t, xi, dx,n) //was muss ihc hier eintippen?
+    for( j=0; j<n;j++){
+        k4[j]=h+dx[j];
         x[j] = xi[j] + k1[j]/6.0+k2[j]/3.0+k3[j]/3.0+k4[j]/6.0;
         }
 
 }
 
-*/
+
 
 
 /* a[0]=x   b[0]=dx
@@ -54,14 +54,14 @@ using namespace std;
  * a[2]=dx  b[2]=ddxx
  * a[3]=dy  b[3]=ddyy
  * */
-/*double functi(double a[4], double b[4], int w, double X[w][w], double Y[w][w]){ //welche davon brauche ich???
-    b[0]=a[2];
-    b[1]=a[3];
+double functi(double t, double x[], double dx[], int n){ //welche davon brauche ich???
+    dx[0]=x[2];
+    dx[1]=x[3];
 
-    b[2]=X[][];
-    b[3]=Y[][];
+    dx[2]=X[][];
+    dx[3]=Y[][];
 
-}*/
+}
 
 
 // Diese Funktion erstellt den Passenden Kondensator
@@ -364,7 +364,7 @@ int main() {
 
 
 
-    kondensator(v, w, o, q, y1, y2, x, l, m);
+    kondensator(v, /*w,*/ o, q, y1, y2, x, l, m);
 
     //It is sometimes an appropriate response to reality to go insane. - Philip K. Dick
 
