@@ -4,7 +4,7 @@
 
 #include "vektor.h"
 
-vektor::vektor() {
+/* vektor::vektor() {
     x = 0.;
     y = 0.;
     z = 0.;
@@ -16,6 +16,11 @@ vektor::vektor(double a, double b, double c){
     z = c;
 }
 
+double[3] vektor::get() {
+    return leo;
+
+}
 vektor::~vektor() {
 
 }
+ */

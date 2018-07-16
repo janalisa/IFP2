@@ -17,7 +17,6 @@ void feld::setvalue(double X, double Y){
 //Berechnung Magnitude
 double feld::mag(){}
 
-/*
 feld::feld(double x, double y){
     X2[i][j] = GX[i][j];
     Y2[i][j] = GY[i][j];

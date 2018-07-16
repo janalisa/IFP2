@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 //#include "vektor.h"
-#include "TH2.h"
+#include "TH2F.h"
 #include "TCanvas.h"
 #include "feld.h"
 using namespace std;
@@ -408,15 +408,16 @@ int main() {
 
 
 
-    TH2* h = new TH2F("h2", "Feldstaerke", w, 0, w, w, 0, w);
+    TCanvas* c = new TCanvas("c","c",800,600);
+    TH2F *h = new TH2F("h", "Feldstaerke", 0, w, 0, w);
+    gStyle->SetOptStat(0);
     for(i=0; i<w;i++){
         for(j=0; j<w; j++){
             h->SetBinContent(i,j, sqrt(X[i][j]*X[i][j] + Y[i][j]*Y[i][j]));
-            gStyle->SetPalette(ncolors == 1 && colors == 0,colors);
         }
     }
-    TCanvas* c = new TCanvas("c","c",800,600);
     h->Draw("col4z");
+    c->Update();
     //h->Draw("ARR" );
     cout << "bla" << endl;
     c->SaveAs("feldstaerke.png");
