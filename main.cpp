@@ -9,7 +9,7 @@ using namespace std;
 //#experimentelle informatik
 
 
-double rk(double functi(double , double [], double [], int ), double ti, double tf, int xi, int yi, int n){
+/*double rk(double functi(double , double [], double [], int ), double ti, double tf, int xi, int yi, int n){
     double k1[4], k2[4], k3[4], k4[4];
     double h,t, x[n], dx[n]
     h=tf-ti;
@@ -44,7 +44,7 @@ double rk(double functi(double , double [], double [], int ), double ti, double 
         x[j] = xi[j] + k1[j]/6.0+k2[j]/3.0+k3[j]/3.0+k4[j]/6.0;
         }
 
-}
+}*/
 
 
 
@@ -54,14 +54,14 @@ double rk(double functi(double , double [], double [], int ), double ti, double 
  * a[2]=dx  b[2]=ddxx
  * a[3]=dy  b[3]=ddyy
  * */
-double functi(double t, double x[], double dx[], int n){ //welche davon brauche ich???
+/*double functi(double t, double x[], double dx[], int n){ //welche davon brauche ich???
     dx[0]=x[2];
     dx[1]=x[3];
 
     dx[2]=X[][];
     dx[3]=Y[][];
 
-}
+}*/
 
 
 // Diese Funktion erstellt den Passenden Kondensator
@@ -260,7 +260,7 @@ int main() {
     //Koordinatensystem initialisieren
 
     //double M[w][w];
-    double X[w][w];
+      double X[w][w];
     double Y[w][w];
     double GX[w][w];
     double GY[w][w];
