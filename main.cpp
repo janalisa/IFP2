@@ -4,12 +4,13 @@
 #include "TH2F.h"
 #include "TCanvas.h"
 #include "feld.h"
+#include "TGraph.h"
 using namespace std;
 
 //#experimentelle informatik
 #define w 100
 
-double rk(double functi(double , double [], double [], int ), double ti, double tf, int xi, int yi, int n){
+/*double rk(double functi(double , double [], double [], int ), double ti, double tf, int xi, int yi, int n){
     double k1[4], k2[4], k3[4], k4[4];
     double h,t, x[n], dx[n];
     h=tf-ti;
@@ -44,7 +45,7 @@ double rk(double functi(double , double [], double [], int ), double ti, double 
         x[j] = xi[j] + k1[j]/6.0+k2[j]/3.0+k3[j]/3.0+k4[j]/6.0;
         }
 
-}
+}*/
 
 
 
@@ -54,14 +55,14 @@ double rk(double functi(double , double [], double [], int ), double ti, double 
  * a[2]=dx  b[2]=ddxx
  * a[3]=dy  b[3]=ddyy
  * */
-double functi(double t, double x[], double dx[], int n){ //welche davon brauche ich???
+/*double functi(double t, double x[], double dx[], int n){ //welche davon brauche ich???
     dx[0]=x[2];
     dx[1]=x[3];
 
     dx[2]=X;
     dx[3]=Y;
 
-}
+}*/
 
 
 // Diese Funktion erstellt den Passenden Kondensator
@@ -423,28 +424,48 @@ int main() {
 
 
 //a[] auch hier definieren?
-    int n=4;
-    int xi[n];
+    int xi,yi;
+    double vx,vy,xx,yy;
+    int t;
+    cout << "Wie lange soll das Teilchen fliegen?"<< endl;
+    scanf("%i", t);
+
      cout << "Was ist die x ort  des Teilchens"<< endl;
-     scanf("%i", xi[0]);
+     scanf("d", xi);
      cout << "Was ist die y ort  des Teilchens"<< endl;
-     scanf("%i", &xi[1]);
+     scanf("%d", &yi);
      cout << "Was ist die x geschwindigkeit  des Teilchens"<< endl;
-     scanf("%i", &xi[2]);
+     scanf("lf", &vx);
      cout << "Was ist die y geschwindigkeit  des Teilchens"<< endl;
-     scanf("%i", &xi[3]);y
+     scanf("%lf", &vy);
+
+
+    Int_t tt=t;
+    Double_t rootx[tt], rooty[tt];
+//x = xi+vi*t +1/2 Et^2 analog y
+    for(i=1; i<=t; i++){
+        if (M[i1][j1] != 0) continue;
+        xx=xi+vx*1+0.5*X[xi][yi]*1*1;
+        xi=(int)ceil(xx);
+        yy=yi+vy*1+0.5*Y[x][yi]*1*1;
+        yi=(int)ceil(yy);
+        vx=vx+X[xi][yi];
+        vy=vy+Y[xi][yi];
+        rootx[i]=xx;
+        rooty[i]=yy;
+    }
+
+TGraph *gr3 =vnew TGraph(tt,rootx, rooty);
+TCanvas *c1 = new TCanvas ("c1","Graph Draw Options",
+                               200,10,600,400);
+gr3->SetMarkerStyle(21);
+c1->cd(4);
+gr3->Draw("APL");
+Double_t *nx = gr3->GetX();
+Double_t *ny = gr3->GetY();
 
 
 
-
-
-
-
-
-
-
-    functi(t, x[], dx[], n);
-    rk(functi(t, x[], dx[],n ), ti, tf, xi, yi, n);
 
 
 
