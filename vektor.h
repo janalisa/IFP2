@@ -5,7 +5,7 @@
 #ifndef IFP_VECTOR_H
 #define IFP_VECTOR_H
 
-class vektor{
+/* class vektor{
     double x,y,z;
 
 public:
@@ -22,7 +22,7 @@ double theta();
 double len();
 
 };
-
+*/
 
 #endif //IFP_VECTOR_H
 
