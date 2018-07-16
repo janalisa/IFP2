@@ -19,7 +19,7 @@ using namespace std;
             functi(t, xi, dx, n) //was muss ihc hier eintippen?
             for( j=0; j<n;j++){
                 k1[j]=h+dx[j];
-                a[j]=xi[j]+k1[j]/2;
+                dx[j]=xi[j]+k1[j]/2;
                 }
 
  //k2 Berechnen
@@ -65,7 +65,7 @@ using namespace std;
 
 
 // Diese Funktion erstellt den Passenden Kondensator
-double kondensator(int v, /*int w,*/ int o, int q, int y1, int y2, int x, int l, double m){
+void kondensator(double [], int v, /*int w,*/ int o, int q, int y1, int y2, int x, int l, double m){
     double M[w][w];
 
     for(int i=0; i<w; i++) {
@@ -222,7 +222,7 @@ double kondensator(int v, /*int w,*/ int o, int q, int y1, int y2, int x, int l,
 
     }
 
-   return M[][]; //Wie kriege ich M raus
+   return 0; //Wie kriege ich M raus
 }
 
 
@@ -259,8 +259,8 @@ int main() {
 
     //Koordinatensystem initialisieren
 
-    //double M[w][w];
-      double X[w][w];
+    double M[w][w];
+    double X[w][w];
     double Y[w][w];
     double GX[w][w];
     double GY[w][w];
@@ -341,7 +341,7 @@ int main() {
     // ALL the ARRAYS
    for(i=0; i<w; i++) {
         for (j = 0; j < w; j++) {
-           // M[i][j] = 0; //Masse also PLatten
+            M[i][j] = 0; //Masse also PLatten
             X[i][j] =0; // x Komponente Vektor
             Y[i][j] = 0; //Y Komponente Vektor
             GX[i][j] = 0; //Feld X Komponente
@@ -364,14 +364,11 @@ int main() {
 
 
 
-    kondensator(v, /*w,*/ o, q, y1, y2, x, l, m);
+    kondensator(M[][], v, /*w,*/ o, q, y1, y2, x, l, m);
 
     //It is sometimes an appropriate response to reality to go insane. - Philip K. Dick
 
-    //Alles ausrechnen
 
-
-    // was will ich eigetnlich mit der Klasse?
 
 
     //Ding was durchfliegt, von links, betrifft nur die x komponente
