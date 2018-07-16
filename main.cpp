@@ -7,44 +7,44 @@
 using namespace std;
 
 //#experimentelle informatik
+#define w 100
 
-
-/*double rk(double functi(double , double [], double [], int ), double ti, double tf, int xi, int yi, int n){
+double rk(double functi(double , double [], double [], int ), double ti, double tf, int xi, int yi, int n){
     double k1[4], k2[4], k3[4], k4[4];
-    double h,t, x[n], dx[n]
+    double h,t, x[n], dx[n];
     h=tf-ti;
     t=ti;
 
     //k1 Berechnen
-            functi(t, xi, dx, n) //was muss ihc hier eintippen?
-            for( j=0; j<n;j++){
+            functi(t, xi, dx, n);//was muss ihc hier eintippen?
+            for(int j=0; j<n;j++){
                 k1[j]=h+dx[j];
                 dx[j]=xi[j]+k1[j]/2;
                 }
 
  //k2 Berechnen
-            functi(t+h/2, x, dx,n) //was muss ihc hier eintippen?
-            for( j=0; j<n;j++){
+            functi(t+h/2, x, dx,n);//was muss ihc hier eintippen?
+            for(int j=0; j<n;j++){
                 k2[j]=h+dx[j];
-                a[j]=xi[j]+k2[j]/2;
+                dx[j]=xi[j]+k2[j]/2;
                 }
 
      //k3 Berechnen
-        functi(t, x, dx,n) //was muss ihc hier eintippen?
-        for( j=0; j<n;j++){
+        functi(t, x, dx,n);//was muss ihc hier eintippen?
+        for(int j=0; j<n;j++){
             k3[j]=h+dx[j];
-            a[j]=xi[j]+k3[j]/2;
+            dx[j]=xi[j]+k3[j]/2;
             }
 
 
      //k4 Berechnen
-    functi(t, xi, dx,n) //was muss ihc hier eintippen?
-    for( j=0; j<n;j++){
+    functi(t, xi, dx,n);//was muss ihc hier eintippen?
+    for(int j=0; j<n;j++){
         k4[j]=h+dx[j];
         x[j] = xi[j] + k1[j]/6.0+k2[j]/3.0+k3[j]/3.0+k4[j]/6.0;
         }
 
-}*/
+}
 
 
 
@@ -54,19 +54,19 @@ using namespace std;
  * a[2]=dx  b[2]=ddxx
  * a[3]=dy  b[3]=ddyy
  * */
-/*double functi(double t, double x[], double dx[], int n){ //welche davon brauche ich???
+double functi(double t, double x[], double dx[], int n){ //welche davon brauche ich???
     dx[0]=x[2];
     dx[1]=x[3];
 
-    dx[2]=X[][];
-    dx[3]=Y[][];
+    dx[2]=X;
+    dx[3]=Y;
 
-}*/
+}
 
 
 // Diese Funktion erstellt den Passenden Kondensator
-void kondensator(double [], int v, /*int w,*/ int o, int q, int y1, int y2, int x, int l, double m){
-    double M[w][w];
+void kondensator(double M[w][w], int v, /*int w,*/ int o, int q, int y1, int y2, int x, int l, double m){
+
 
     for(int i=0; i<w; i++) {
         for (int j = 0; j < w; j++) {
@@ -222,7 +222,7 @@ void kondensator(double [], int v, /*int w,*/ int o, int q, int y1, int y2, int 
 
     }
 
-   return 0; //Wie kriege ich M raus
+   //Wie kriege ich M raus
 }
 
 
@@ -236,7 +236,7 @@ int main() {
 
     int l; //=75; //laenge PLatte
    // int h=4; //hoehe PLatte
-    int w; //=100; //Kantenlaenge Wuerfel
+    //const int w; //=100; //Kantenlaenge Wuerfel
     int i, j, i1, i2, j1, j2; //Laufindizes
     int x; //=10; //naechste ecke am nullpunkt in x richtung
     int y1; //=30;
@@ -271,8 +271,8 @@ int main() {
     // Eingabeshit fragen, dann aber oben ab = rauskommenteirtn
     cout << "Fuer einen homogenen Kondensator bitte die 1 druecken, fuer einen inhomogenen Kondensator bitte die 2 druecken, fuer ein Achteck bitte die 3 druecken, fuer 3 Punkte bitte die 4 druecken."<< endl;
     scanf("%i", &v);
-    cout << "Wie gross ist die Unterteilung? Der Wert sollte grosser als X+laenge und das groessere Y sein."<< endl;
-    scanf("%i", &w);
+    //cout << "Wie gross ist die Unterteilung? Der Wert sollte grosser als X+laenge und das groessere Y sein."<< endl;
+  //  scanf("%i", &w);
     if(v==1){
         cout << "Wie lang soll die Platte sein?"<< endl;
         scanf("%i", &l);
@@ -364,7 +364,7 @@ int main() {
 
 
 
-    kondensator(M[][], v, /*w,*/ o, q, y1, y2, x, l, m);
+    kondensator(M, v, /*w,*/ o, q, y1, y2, x, l, m);
 
     //It is sometimes an appropriate response to reality to go insane. - Philip K. Dick
 
@@ -406,8 +406,9 @@ int main() {
 
 
     TCanvas* c = new TCanvas("c","c",800,600);
-    TH2F *h = new TH2F("h", "Feldstaerke", 0, w, 0, w);
+    TH2F *h = new TH2F("h", "Feldstaerke", 100 , 0., 99., 100, 0., 99.);
     gStyle->SetOptStat(0);
+    SetBinsLength(Int_t w-1);
     for(i=0; i<w;i++){
         for(j=0; j<w; j++){
             h->SetBinContent(i,j, sqrt(X[i][j]*X[i][j] + Y[i][j]*Y[i][j]));
@@ -422,18 +423,16 @@ int main() {
 
 
 //a[] auch hier definieren?
-
-
-   // cout << "Was ist die x ort  des Teilchens"<< endl;
-   // scanf("%i", &a[0]);
-    // cout << "Was ist die y ort  des Teilchens"<< endl;
-    // scanf("%i", &a[1]);
-    // cout << "Was ist die x geschwindigkeit  des Teilchens"<< endl;
-    // scanf("%i", &a[2]);
-    // cout << "Was ist die y geschwindigkeit  des Teilchens"<< endl;
-    // scanf("%i", &a[3]);y
-
-
+    int n=4;
+    int xi[n];
+     cout << "Was ist die x ort  des Teilchens"<< endl;
+     scanf("%i", xi[0]);
+     cout << "Was ist die y ort  des Teilchens"<< endl;
+     scanf("%i", &xi[1]);
+     cout << "Was ist die x geschwindigkeit  des Teilchens"<< endl;
+     scanf("%i", &xi[2]);
+     cout << "Was ist die y geschwindigkeit  des Teilchens"<< endl;
+     scanf("%i", &xi[3]);y
 
 
 
@@ -444,6 +443,8 @@ int main() {
 
 
 
+    functi(t, x[], dx[], n);
+    rk(functi(t, x[], dx[],n ), ti, tf, xi, yi, n);
 
 
 
