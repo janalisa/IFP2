@@ -7,6 +7,7 @@
 #include "TGraph.h"
 #include "TStyle.h"
 #include "TMath.h"
+#include "TH1F.h"
 //#include "TH3F.h"
 
 using namespace std;
@@ -416,14 +417,14 @@ int main() {
     TCanvas *c = new TCanvas("c","c",800,600);
     TH2D *h = new TH2D("h", "Feldstaerke", 100 , 0., 99., 100, 0., 99.);
     //gStyle->SetOptStat(0);
-    h->SetBinsLength(W-1);
+    //h->SetBinsLength(W-1);
     for(i=1; i<=W;i++){
         for(j=1; j<=W; j++){
             h->SetBinContent(i,j, (double) sqrt(X[i][j]*X[i][j] + Y[i][j]*Y[i][j]));
-            cout << sqrt(X[i][j]*X[i][j] + Y[i][j]*Y[i][j]) << endl;
+            cout << "i=" << i << " j=" << j << ":  " << sqrt(X[i][j]*X[i][j] + Y[i][j]*Y[i][j]) << endl;
         }
     }
-    //h->SetEntries(1);
+    h->SetEntries(1);
     h->Draw("lego");
     c->Update();
     //h->Draw("ARR" );
@@ -453,26 +454,36 @@ int main() {
     Double_t rootx[tt], rooty[tt];
 //x = xi+vi*t +1/2 Et^2 analog y
     for(i=1; i<=t; i++){
-        if (M[i1][j1] != 0) continue;
+        if (M[xi][yi] != 0) continue;
+        if (M[xi][yi]!=0 && M[xi][yi]!=m) continue;
         xx=xi+vx*1+0.5*X[xi][yi]*1*1;
         xi=(int)ceil(xx);
-        yy=yi+vy*1+0.5*Y[x][yi]*1*1;
+        yy=yi+vy*1+0.5*Y[xi][yi]*1*1;
         yi=(int)ceil(yy);
         vx=vx+X[xi][yi];
         vy=vy+Y[xi][yi];
-        rootx[i]=xx;
-        rooty[i]=yy;
+        rootx[i]=xi;
+        rooty[i]=yi;
     }
 
-TGraph *gr3 =new TGraph(tt,rootx, rooty);
-TCanvas *c1 = new TCanvas("c1","Graph Draw Options",
-                               200,10,600,400);
-gr3->SetMarkerStyle(21);
-c1->cd(4);
-gr3->Draw("APL");
-Double_t *nx = gr3->GetX();
-Double_t *ny = gr3->GetY();
-c->SaveAs("teilchen.png");
+    TCanvas *c2 = new TCanvas("c2","c2",800,600);
+    c2->cd();
+    TH1F *h2 = new TH1F("h2", "x-y Plot", 100 , 0., 0.1);
+    h2->SetMarkerStyle(6);
+    //gStyle->SetOptStat(0);
+    //h->SetBinsLength(W-1);
+    for(i=1; i<=W;i++){
+            cout << "x+"<<rootx[i] << "  y="<<rooty[i] << endl;
+            h2->Fill(rootx[i], rooty[i]);
+
+
+    }
+    //h->SetEntries(1);
+    h2->Draw();
+    c2->Update();
+    //h->Draw("ARR" );
+    cout << "bla" << endl;
+    c2->SaveAs("teilchen.png");
 
 
 
