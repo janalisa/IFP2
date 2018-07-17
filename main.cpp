@@ -5,6 +5,10 @@
 #include "TCanvas.h"
 #include "feld.h"
 #include "TGraph.h"
+#include "TStyle.h"
+#include "TMath.h"
+//#include "TH3F.h"
+
 using namespace std;
 
 //#experimentelle informatik
@@ -203,13 +207,13 @@ void kondensator(double M[w][w], int v, /*int w,*/ int o, int q, int y1, int y2,
         M[23][29] = 3;
         M[22][29] = 3;
         M[21][29] = 3;
-        ////////////////  3
+
         M[20][29] = 4;
         M[19][28] = 4;
         M[18][27] = 4;
         M[17][26] = 4;
         M[17][25] = 4;
-        /////////////////  4
+
         M[17][24] = 5;
         M[17][23] = 5;
         M[18][22] = 5;
