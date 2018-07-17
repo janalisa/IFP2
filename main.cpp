@@ -455,15 +455,17 @@ int main() {
 //x = xi+vi*t +1/2 Et^2 analog y
     for(i=1; i<=t; i++){
         //if (M[xi][yi] != 0) continue;
-        if (xi>W || xi< 0 ||yi<0 || yi>W) break;
-        xx=xi+vx*1+0.5*X[xi][yi]*1*1;
-        xi=(int)ceil(xx);
-        yy=yi+vy*1+0.5*Y[xi][yi]*1*1;
-        yi=(int)ceil(yy);
-        vx=vx+X[xi][yi];
-        vy=vy+Y[xi][yi];
-        rootx[i]=xi;
-        rooty[i]=yi;
+        //if (xi>W || xi< 0 ||yi<0 || yi>W) break;
+        if(xi>=0 && xi<=W &&yi>=0 && yi<=W){
+            xx=xi+vx*1+0.5*X[xi][yi]*1*1;
+            xi=(int)ceil(xx);
+            yy=yi+vy*1+0.5*Y[xi][yi]*1*1;
+            yi=(int)ceil(yy);
+            vx=vx+X[xi][yi];
+            vy=vy+Y[xi][yi];
+            rootx[i]=xi;
+            rooty[i]=yi;
+        }
     }
 
     TCanvas *c2 = new TCanvas("c2","c2",800,600);
