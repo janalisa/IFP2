@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 //#include "vektor.h"
-#include "TH2F.h"
+#include "TH2D.h"
 #include "TCanvas.h"
 #include "feld.h"
 #include "TGraph.h"
@@ -12,7 +12,7 @@
 using namespace std;
 
 //#experimentelle informatik
-#define w 100
+#define W 100
 
 /*double rk(double functi(double , double [], double [], int ), double ti, double tf, int xi, int yi, int n){
     double k1[4], k2[4], k3[4], k4[4];
@@ -70,11 +70,11 @@ using namespace std;
 
 
 // Diese Funktion erstellt den Passenden Kondensator
-void kondensator(double M[w][w], int v, /*int w,*/ int o, int q, int y1, int y2, int x, int l, double m){
+void kondensator(double M[W][W], int v, /*int W,*/ int o, int q, int y1, int y2, int x, int l, double m){
 
 
-    for(int i=0; i<w; i++) {
-        for (int j = 0; j < w; j++) {
+    for(int i=0; i<W; i++) {
+        for (int j = 0; j < W; j++) {
             M[i][j] = 0;
 
         }
@@ -189,7 +189,7 @@ void kondensator(double M[w][w], int v, /*int w,*/ int o, int q, int y1, int y2,
                 //////////////////  8
 
     }
-    if(v=3){ //Achteck
+    if(v==3){ //Achteck
         M[20][20] = 1;
         M[21][20] = 1;
         M[22][20] = 1;
@@ -264,14 +264,14 @@ int main() {
 
     //Koordinatensystem initialisieren
 
-    double M[w][w];
-    double X[w][w];
-    double Y[w][w];
-    double GX[w][w];
-    double GY[w][w];
-    double T[w][w];
-    double Mag[w][w];
-    double Cos[w][w];
+    double M[W][W];
+    double X[W][W];
+    double Y[W][W];
+    double GX[W][W];
+    double GY[W][W];
+    double T[W][W];
+    double Mag[W][W];
+    double Cos[W][W];
 
     // Eingabeshit fragen, dann aber oben ab = rauskommenteirtn
     cout << "Fuer einen homogenen Kondensator bitte die 1 druecken, fuer einen inhomogenen Kondensator bitte die 2 druecken, fuer ein Achteck bitte die 3 druecken, fuer 3 Punkte bitte die 4 druecken."<< endl;
@@ -289,7 +289,7 @@ int main() {
         scanf("%i", &y2);
         o=0;
         q=0;
-        if(x+l>w || y1>w ||y2>w){
+        if(x+l>W || y1>W ||y2>W){
             cout<< "Idiot"<< endl;
         }
 
@@ -304,7 +304,7 @@ int main() {
         q=0;
         x=0;
         l=0;
-        if( y1>w ||y2>w){
+        if( y1>W ||y2>W){
             cout<< "Idiot";
         }
     }
@@ -317,7 +317,7 @@ int main() {
         x=0;
         l=0;
     }
-    if(v==4){ //w, o, q, y1, y2, x, l,
+    if(v==4){ //W, o, q, y1, y2, x, l,
         cout << "Was ist die x Koponente des ersten Punktes" << endl;
         scanf("%i", &o);
         cout << "Was ist die y Koponente des ersten Punktes"<< endl;
@@ -344,9 +344,9 @@ int main() {
 
     //initialisieren Koordinatensystem
     // ALL the ARRAYS
-   for(i=0; i<w; i++) {
-        for (j = 0; j < w; j++) {
-            M[i][j] = 0; //Masse also PLatten
+   for(i=0; i<W; i++) {
+        for (j = 0; j < W; j++) {
+            //M[i][j] = 0; //Masse also PLatten
             X[i][j] =0; // x Komponente Vektor
             Y[i][j] = 0; //Y Komponente Vektor
             GX[i][j] = 0; //Feld X Komponente
@@ -384,42 +384,47 @@ int main() {
 //    double mm = 9; // Masse vom Teilchen
 
 // am anfang habe ihc GX und so geprinted und zwischendurch kamen Buchstaben? aber ka ob es wirklich GX war weil da noch anders zeug drinnnen war.
-    for(i1=0; i1<w; i1++){
-        for(j1=0; j1<w; j1++){
+    for(i1=0; i1<W; i1++){
+        for(j1=0; j1<W; j1++){
+            cout<< M[i1][j1];
+            if (M[i1][j1] != 0) {
 
-            if (M[i1][j1] != 0) continue;
 
-
-            for(i2=0; i2<w; i2++){
-                    for(j2=0; j2<w; j2++) {
-                        if (M[i2][j2] == 0) //wie kriege ihc M hin?
+                for (i2 = 0; i2 < W; i2++) {
+                    for (j2 = 0; j2 < W; j2++) {
+                        if (M[i2][j2] == 0) //Wie kriege ihc M hin?
                         {
-                           double r = sqrt((i2-i1)*(i2-i1)+(j2-j1)*(j2-j1));
-                           double force= M[i2][j2]*G/pow(r,3);
-                           X[i2][j2] += force*(i2-i1);
-                           Y[i2][j2] += force*(j2-j1);
+                            double r = sqrt((i2 - i1) * (i2 - i1) + (j2 - j1) * (j2 - j1));
+                            double force = M[i1][j1] * G / pow(r, 3);
+                            X[i2][j2] += force * (i2 - i1);
+                            Y[i2][j2] += force * (j2 - j1);
 
                         }
 
+                    }
                 }
             }
         }
+
+        cout << endl;
     }
 
+    cout << "Der Depp ist endlich fertig" << endl;
 
 
 
-
-    TCanvas* c = new TCanvas("c","c",800,600);
-    TH2F *h = new TH2F("h", "Feldstaerke", 100 , 0., 99., 100, 0., 99.);
-    gStyle->SetOptStat(0);
-    SetBinsLength(Int_t w-1);
-    for(i=0; i<w;i++){
-        for(j=0; j<w; j++){
-            h->SetBinContent(i,j, sqrt(X[i][j]*X[i][j] + Y[i][j]*Y[i][j]));
+    TCanvas *c = new TCanvas("c","c",800,600);
+    TH2D *h = new TH2D("h", "Feldstaerke", 100 , 0., 99., 100, 0., 99.);
+    //gStyle->SetOptStat(0);
+    h->SetBinsLength(W-1);
+    for(i=1; i<=W;i++){
+        for(j=1; j<=W; j++){
+            h->SetBinContent(i,j, (double) sqrt(X[i][j]*X[i][j] + Y[i][j]*Y[i][j]));
+            cout << sqrt(X[i][j]*X[i][j] + Y[i][j]*Y[i][j]) << endl;
         }
     }
-    h->Draw("col4z");
+    //h->SetEntries(1);
+    h->Draw("lego");
     c->Update();
     //h->Draw("ARR" );
     cout << "bla" << endl;
@@ -432,14 +437,14 @@ int main() {
     double vx,vy,xx,yy;
     int t;
     cout << "Wie lange soll das Teilchen fliegen?"<< endl;
-    scanf("%i", t);
+    scanf("%i", &t);
 
      cout << "Was ist die x ort  des Teilchens"<< endl;
-     scanf("d", xi);
+     scanf("%d", &xi);
      cout << "Was ist die y ort  des Teilchens"<< endl;
      scanf("%d", &yi);
      cout << "Was ist die x geschwindigkeit  des Teilchens"<< endl;
-     scanf("lf", &vx);
+     scanf("%lf", &vx);
      cout << "Was ist die y geschwindigkeit  des Teilchens"<< endl;
      scanf("%lf", &vy);
 
@@ -459,15 +464,15 @@ int main() {
         rooty[i]=yy;
     }
 
-TGraph *gr3 =vnew TGraph(tt,rootx, rooty);
-TCanvas *c1 = new TCanvas ("c1","Graph Draw Options",
+TGraph *gr3 =new TGraph(tt,rootx, rooty);
+TCanvas *c1 = new TCanvas("c1","Graph Draw Options",
                                200,10,600,400);
 gr3->SetMarkerStyle(21);
 c1->cd(4);
 gr3->Draw("APL");
 Double_t *nx = gr3->GetX();
 Double_t *ny = gr3->GetY();
-
+c->SaveAs("teilchen.png");
 
 
 
@@ -487,9 +492,9 @@ Double_t *ny = gr3->GetY();
 
 
 // path
-//haengt irgendwie davon ab wierum der array laeuft, wie geht das jetzt weiter?
+//haengt irgendWie davon ab Wierum der array laeuft, Wie geht das jetzt Weiter?
 /*
-//    while(break){
+//    While(break){
             for(Y[x3][y3] != y1 && Y[x3][y3] != y2) {
                 for (X[x3][y3] < x || X[x3][y3] > x + l - 1) {
 
@@ -540,12 +545,12 @@ Double_t *ny = gr3->GetY();
 
 
 
-// am anfang habe ihc GX und so geprinted und zwischendurch kamen Buchstaben? aber ka ob es wirklich GX war weil da noch anders zeug drinnnen war.
+// am anfang habe ihc GX und so geprinted und zWischendurch kamen Buchstaben? aber ka ob es Wirklich GX War Weil da noch anders zeug drinnnen War.
 
-    //WARUM IST NICHTS DECLARED???????????????????????????????? ok irgendwie funktioniert das jetzt??????
-    for(i1=0; i1<w; i1++){
-        for(j1=0; j1<w; j1++){
-            for(j2=0; j2<w; j2++){
+    //WARUM IST NICHTS DECLARED???????????????????????????????? ok irgendWie funktioniert das jetzt??????
+    for(i1=0; i1<W; i1++){
+        for(j1=0; j1<W; j1++){
+            for(j2=0; j2<W; j2++){
                 if(j2=y1){
                     for(i2=29; i2<69; i2++) {
                         X3[i2][j2] = i2 - i1;
@@ -626,16 +631,16 @@ Double_t *ny = gr3->GetY();
         //hier kommt nur noch alter shit und return 0;
 
         /*  vektor ***A;
-          A = new vektor**[100];
+          A = neW vektor**[100];
 
           double M[100][100][100];
 
           // Raum fr mAssen
-          for(i=0; i<w; i++){
-              A[i] = new vektor*[100];
-              for(j=0; j<w; j++){
-                  A[i][j]=new vektor[100];
-                  for(k=0; k<w; k++){
+          for(i=0; i<W; i++){
+              A[i] = neW vektor*[100];
+              for(j=0; j<W; j++){
+                  A[i][j]=neW vektor[100];
+                  for(k=0; k<W; k++){
                       M[i][j][k] = 0;
                       A[i][j][k]=vektor();
                   }
@@ -656,9 +661,9 @@ Double_t *ny = gr3->GetY();
       */
 
 //leerem Raum initialisieren
-        /* for(i=0; i<=w; i++){ // x Koordinate
-             for(j=0; j<=w; j++){
-                 for(k=0; k<=w; k++){
+        /* for(i=0; i<=W; i++){ // x Koordinate
+             for(j=0; j<=W; j++){
+                 for(k=0; k<=W; k++){
                      vektor
 
                  }
@@ -667,9 +672,9 @@ Double_t *ny = gr3->GetY();
 
 
 // Ausgabe
-        /* for(k=0; k<=w; k++){ // z Koordinate
-             for(j=0; j<=w; j++){
-                 for(i=0; i<=w; i++){
+        /* for(k=0; k<=W; k++){ // z Koordinate
+             for(j=0; j<=W; j++){
+                 for(i=0; i<=W; i++){
                      cout << A[i][j][k] << " ";
                  }
                  cout << endl;
@@ -697,9 +702,9 @@ Double_t *ny = gr3->GetY();
 /* //Ausgabe
     cout << "Nach Anlegen der Platten: \n" << endl;
 
-    for(k=0; k<=w; k++){ // z Koordinate
-        for(j=0; j<=w; j++){
-            for(i=0; i<=w; i++){
+    for(k=0; k<=W; k++){ // z Koordinate
+        for(j=0; j<=W; j++){
+            for(i=0; i<=W; i++){
                 cout << A[i][j][k] << " ";
             }
             cout << endl;
@@ -716,13 +721,13 @@ Double_t *ny = gr3->GetY();
     for(k1=1; k1<=n; k1++){
         for(j1=1; j1<=n; j1++){
             for(i1=1; i1<=n; i1++){
-                if(abs((w*j1/n)-v1) <eps){	//Richtig krasse abs
-                    if((w*i1/n)>=u && (w*i1/n)<=u+a){
-                        if((w*k1/n)>=t && (w*k1/n)<=t+b){
+                if(abs((W*j1/n)-v1) <eps){	//Richtig krasse abs
+                    if((W*i1/n)>=u && (W*i1/n)<=u+a){
+                        if((W*k1/n)>=t && (W*k1/n)<=t+b){
                             for(k2=1; k2<=n; k2++){
                                 for(j2=1; j2<=n; j2++){
                                     for(i2=1; i2<=n; i2++){
-                                        rsqr=(w*i1/n)*(w*i1/n)+(w*j1/n)*(w*j1/n)+(w*k1/n)*(w*k1/n);
+                                        rsqr=(W*i1/n)*(W*i1/n)+(W*j1/n)*(W*j1/n)+(W*k1/n)*(W*k1/n);
                                         R=R+rsqr;
                                         //arrays und so
                                         //return R;
@@ -732,13 +737,13 @@ Double_t *ny = gr3->GetY();
                         }
                     }
                 }
-                if(abs((w*j1/n)-v2) <eps){
-                    if((w*i1/n)>=u && (w*i1/n)<=u+a){
-                        if((w*k1/n)>=t && (w*k1/n)<=t+b){
+                if(abs((W*j1/n)-v2) <eps){
+                    if((W*i1/n)>=u && (W*i1/n)<=u+a){
+                        if((W*k1/n)>=t && (W*k1/n)<=t+b){
                             for(k2=1; k2<=n; k2++){
                                 for(j2=1; j2<=n; j2++){
                                     for(i2=1; i2<=n; i2++){
-                                        rsqr=(w*i1/n)*(w*i1/n)+(w*j1/n)*(w*j1/n)+(w*k1/n)*(w*k1/n);
+                                        rsqr=(W*i1/n)*(W*i1/n)+(W*j1/n)*(W*j1/n)+(W*k1/n)*(W*k1/n);
                                         R=R+rsqr;
                                         //arrays und so
                                         //return R;
@@ -753,11 +758,11 @@ Double_t *ny = gr3->GetY();
     }///letzte Klammer
 
 
-    g=G*M*(1/R)*pow(10, -11);
+    g=G*M*(1/R)*poW(10, -11);
 
     std::cout <<"g="<< g << std::endl;
 
-    //TH: wer int main sagt, muss auch return sagen
+    //TH: Wer int main sagt, muss auch return sagen
 
 
 
