@@ -458,9 +458,13 @@ int main() {
     for(i=1; i<=t; i++){
         //if (M[xi][yi] != 0) continue;
         //if (xi>W || xi< 0 ||yi<0 || yi>W) break;
-        if(xi>=0 && xi<=W &&yi>=0 && yi<=W){
+        //if(xi>=0 && xi<=W &&yi>=0 && yi<=W){
             rootx[i]=rootx[i-1]+0.5*X[(int)rootx[i-1]][(int)rooty[i-1]]*1*1;
             rooty[i]=rooty[i-1]+0.5*Y[(int)rootx[i-1]][(int)rooty[i-1]]*1*1;
+            if (rootx[i]>=W) break;
+            if (rooty[i]>=W) break;
+            if (rootx[i]<0) break;
+            if (rooty[i]<0) break;
 /*            xx=xi+vx*1+0.5*X[xi][yi]*1*1;
             yy=yi+vy*1+0.5*Y[xi][yi]*1*1;
             xi=(int)ceil(xx);
@@ -469,10 +473,10 @@ int main() {
             vy=vy+Y[xi][yi];
             rootx[i]=xx;
             rooty[i]=yy;*/
-        }
-        else {
+        //}
+       /* else {
             cout << "hallo" << endl;
-        }
+        }*/
     }
 
     TCanvas *c2 = new TCanvas("c2","c2",800,600);
