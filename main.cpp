@@ -421,11 +421,11 @@ int main() {
     for(i=1; i<=W;i++){
         for(j=1; j<=W; j++){
             h->SetBinContent(i,j, (double) sqrt(X[i][j]*X[i][j] + Y[i][j]*Y[i][j]));
-            cout << "i=" << i << " j=" << j << ":  " << sqrt(X[i][j]*X[i][j] + Y[i][j]*Y[i][j]) << endl;
+            //cout << "i=" << i << " j=" << j << ":  " << sqrt(X[i][j]*X[i][j] + Y[i][j]*Y[i][j]) << endl;
         }
     }
     h->SetEntries(1);
-    h->Draw("lego");
+    h->Draw("ACP");
     c->Update();
     //h->Draw("ARR" );
     cout << "bla" << endl;
@@ -453,33 +453,40 @@ int main() {
     Int_t tt=t;
     Double_t rootx[tt], rooty[tt];
 //x = xi+vi*t +1/2 Et^2 analog y
+    rootx[0]=xi+vx;
+    rooty[0]=yi+vy;
     for(i=1; i<=t; i++){
         //if (M[xi][yi] != 0) continue;
         //if (xi>W || xi< 0 ||yi<0 || yi>W) break;
         if(xi>=0 && xi<=W &&yi>=0 && yi<=W){
-            xx=xi+vx*1+0.5*X[xi][yi]*1*1;
-            xi=(int)ceil(xx);
+            rootx[i]=rootx[i-1]+0.5*X[(int)rootx[i-1]][(int)rooty[i-1]]*1*1;
+            rooty[i]=rooty[i-1]+0.5*Y[(int)rootx[i-1]][(int)rooty[i-1]]*1*1;
+/*            xx=xi+vx*1+0.5*X[xi][yi]*1*1;
             yy=yi+vy*1+0.5*Y[xi][yi]*1*1;
+            xi=(int)ceil(xx);
             yi=(int)ceil(yy);
             vx=vx+X[xi][yi];
             vy=vy+Y[xi][yi];
-            rootx[i]=xi;
-            rooty[i]=yi;
+            rootx[i]=xx;
+            rooty[i]=yy;*/
+        }
+        else {
+            cout << "hallo" << endl;
         }
     }
 
     TCanvas *c2 = new TCanvas("c2","c2",800,600);
     c2->cd();
-    TH1F *h2 = new TH1F("h2", "x-y Plot", 100 , 0., 0.1);
+    TGraph *h2 = new TGraph( 100 , rootx, rooty);
     h2->SetMarkerStyle(6);
     //gStyle->SetOptStat(0);
     //h->SetBinsLength(W-1);
-    for(i=1; i<=W;i++){
-            cout << "x+"<<rootx[i] << "  y="<<rooty[i] << endl;
+    /*for(i=1; i<=W;i++){
+            cout << "x="<<rootx[i] << "  y="<<rooty[i] << endl;
             h2->Fill(rootx[i], rooty[i]);
 
 
-    }
+    }*/
     //h->SetEntries(1);
     h2->Draw();
     c2->Update();
