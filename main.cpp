@@ -454,8 +454,8 @@ int main() {
     Double_t rootx[tt], rooty[tt];
 //x = xi+vi*t +1/2 Et^2 analog y
     for(i=1; i<=t; i++){
-        if (M[xi][yi] != 0) continue;
-        if (M[xi][yi]!=0 && M[xi][yi]!=m) continue;
+        //if (M[xi][yi] != 0) continue;
+        if (xi>W || xi< 0 ||yi<0 || yi>W) break;
         xx=xi+vx*1+0.5*X[xi][yi]*1*1;
         xi=(int)ceil(xx);
         yy=yi+vy*1+0.5*Y[xi][yi]*1*1;
@@ -484,16 +484,6 @@ int main() {
     //h->Draw("ARR" );
     cout << "bla" << endl;
     c2->SaveAs("teilchen.png");
-
-
-
-
-
-
-
-
-
-
 
 
 
