@@ -194,7 +194,7 @@ int main() {
     int y2; //=60; //nachste ecke am nullpunkt in y richtung, v2>v1
 
     double G=6.67408; //gravitationskonstante ohne POtentz
-    double m//= 7; // Massensegment der Platte
+    double m;//= 7; // Massensegment der Platte
 
     int v;
     int q;
@@ -214,14 +214,13 @@ int main() {
     cout << "Fuer einen homogenen Kondensator bitte die 1 druecken, fuer einen inhomogenen Kondensator bitte die 2 druecken, fuer ein Achteck bitte die 3 druecken, fuer 3 Punkte bitte die 4 druecken."<< endl;
     scanf("%i", &v);
 
-    //cout << "Wie gross ist die Unterteilung? Der Wert sollte grosser als X+laenge und das groessere Y sein."<< endl;
-  //  scanf("%i", &w);
+
     if(v==1){
         cout << "Wie lang soll die Platte sein?"<< endl;
         scanf("%i", &l);
         cout << "Bei welchem X Wert beginnt die Platte?"<< endl;
         scanf("%i", &x);
-        cout << "Bei welchem Y Wert liegt die ertse Platte;"<< endl;
+        cout << "Bei welchem Y Wert liegt die erste Platte;"<< endl;
         scanf("%i", &y1);
         cout << "Bei welchem Y Wert liegt die zweite Platte"<< endl;
         scanf("%i", &y2);
@@ -286,14 +285,13 @@ int main() {
 
 
     //Aufruf der Kondensatorfunktion um die Massen im Koordinatensysyem zu erhalten
-    kondensator(M, v, /*w,*/ o, q, y1, y2, x, l, m);
+    kondensator(M, v, o, q, y1, y2, x, l, m);
 
 
 
 // Berechnung der Kraft/des Feldes
     for(i1=0; i1<W; i1++){
         for(j1=0; j1<W; j1++){
-            cout<< M[i1][j1];
             if (M[i1][j1] != 0) {
 
 
@@ -305,7 +303,6 @@ int main() {
                             double force = M[i1][j1] * G / pow(r, 3);
                             X[i2][j2] += force * (i2 - i1);
                             Y[i2][j2] += force * (j2 - j1);
-
                         }
 
                     }
@@ -327,7 +324,6 @@ int main() {
     h->SetEntries(1);
     h->Draw("ACP");
     c->Update();
-    cout << "bla" << endl;
     c->SaveAs("feldstaerke.png");
 
 
@@ -356,7 +352,7 @@ int main() {
     for(i=1; i<=t; i++){
         //if (M[xi][yi] != 0) continue;
         //if (xi>W || xi< 0 ||yi<0 || yi>W) break;
-        //if(xi>=0 && xi<=W &&yi>=0 && yi<=W){
+        //if((int)rootx>=0 && (int)rootx<=W &&(int)rooty>=0 && (int)rooty<=W){
             rootx[i]=rootx[i-1]+0.5*X[(int)rootx[i-1]][(int)rooty[i-1]]*1*1;
             rooty[i]=rooty[i-1]+0.5*Y[(int)rootx[i-1]][(int)rooty[i-1]]*1*1;
             if (rootx[i]>=W) break;
@@ -391,7 +387,6 @@ int main() {
     h2->Draw();
     c2->Update();
     //h->Draw("ARR" );
-    cout << "bla" << endl;
     c2->SaveAs("teilchen.png");
 
 
