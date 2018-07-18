@@ -175,7 +175,7 @@ void kondensator(double M[W][W], int v, int o, int q, int y1, int y2, int x, int
 
     }
 
-   //Wie kriege ich M raus
+
 }
 
 
@@ -196,16 +196,16 @@ int main() {
     double G=6.67408; //gravitationskonstante ohne POtentz
     double m;//= 7; // Massensegment der Platte
 
-    int v;
-    int q;
-    int o;
+    int v; //fuer die Abfrage
+    int q; //fuer die Abfrage
+    int o; //fuer die Abfrage
 
 
 
 
     //Koordinatensystem initialisieren
 
-    double M[W][W]; //wo die masse ist
+    double M[W][W]; //wo die Masse ist im Koordinatensystem
     double X[W][W]; //x Komponenten Kraft/Feld
     double Y[W][W]; //y komponente Kraft/Feld
 
@@ -224,7 +224,7 @@ int main() {
         scanf("%i", &y1);
         cout << "Bei welchem Y Wert liegt die zweite Platte"<< endl;
         scanf("%i", &y2);
-        cout << "Was ist die Masse eines unterteilungsstueckes?"<< endl;
+        cout << "Was ist die Masse eines Unterteilungsstueckes?"<< endl;
         scanf("%i", &m);
         o=0;
         q=0;
@@ -234,8 +234,8 @@ int main() {
 
     }
     if(v==2){
-        cout << "Hierfuer wurde ein Standdardkondensator erstellt, um mehr als den Ort der y komponenten der Kondensatoren einzustellen bitte nach Anleitung in den Programmcode tippen";
-        cout << "Bei welchem Y Wert liegt die ertse Platte;"<< endl;
+        cout << "Hierfuer wurde ein Standdardkondensator erstellt, um mehr als den Ort der y komponenten der Kondensatoren einzustellen bitte nach Anleitung in den Programmcode tippen" << endl;
+        cout << "Bei welchem Y Wert liegt die erste Platte;"<< endl;
         scanf("%i", &y1);
         cout << "Bei welchem Y Wert liegt die zweite Platte"<< endl;
         scanf("%i", &y2);
@@ -257,17 +257,17 @@ int main() {
         l=0;
     }
     if(v==4){ //W, o, q, y1, y2, x, l,
-        cout << "Was ist die x Koponente des ersten Punktes" << endl;
+        cout << "Was ist die x Komponente des ersten Punktes" << endl;
         scanf("%i", &o);
-        cout << "Was ist die y Koponente des ersten Punktes"<< endl;
+        cout << "Was ist die y Komponente des ersten Punktes"<< endl;
         scanf("%i", &q);
-        cout << "Was ist die x Koponente des zweiten Punktes"<< endl;
+        cout << "Was ist die x Komponente des zweiten Punktes"<< endl;
         scanf("%i", &y1);
-        cout << "Was ist die y Koponente des zweiten Punktes"<< endl;
+        cout << "Was ist die y Komponente des zweiten Punktes"<< endl;
         scanf("%i", &y2);
-        cout << "Was ist die x Koponente des dritten Punktes"<< endl;
+        cout << "Was ist die x Komponente des dritten Punktes"<< endl;
         scanf("%i", &x);
-        cout << "Was ist die y Koponente des dritten Punktes"<< endl;
+        cout << "Was ist die y Komponente des dritten Punktes"<< endl;
         scanf("%i", &l);
         cout << "Was sind die Massen der Punkte?"<< endl; //Immer die gleiche Masse
         scanf("%i", &m);
@@ -334,13 +334,13 @@ int main() {
     cout << "Wie lange soll das Teilchen fliegen?"<< endl;
     scanf("%i", &t);
 
-     cout << "Was ist die x ort  des Teilchens"<< endl;
+     cout << "Was ist die x Ort  des Teilchens"<< endl;
      scanf("%d", &xi);
-     cout << "Was ist die y ort  des Teilchens"<< endl;
+     cout << "Was ist die y Ort  des Teilchens"<< endl;
      scanf("%d", &yi);
-     cout << "Was ist die x geschwindigkeit  des Teilchens"<< endl;
+     cout << "Was ist die x Geschwindigkeit  des Teilchens"<< endl;
      scanf("%lf", &vx);
-     cout << "Was ist die y geschwindigkeit  des Teilchens"<< endl;
+     cout << "Was ist die y Geschwindigkeit  des Teilchens"<< endl;
      scanf("%lf", &vy);
 
 
@@ -359,30 +359,16 @@ int main() {
             if (rooty[i]>=W) break;
             if (rootx[i]<0) break;
             if (rooty[i]<0) break;
-/*            xx=xi+vx*1+0.5*X[xi][yi]*1*1;
-            yy=yi+vy*1+0.5*Y[xi][yi]*1*1;
-            xi=(int)ceil(xx);
-            yi=(int)ceil(yy);
-            vx=vx+X[xi][yi];
-            vy=vy+Y[xi][yi];
-            rootx[i]=xx;
-            rooty[i]=yy;*/
+
         //}
-       /* else {
-            cout << "hallo" << endl;
-        }*/
+
     }
     //Bild mit den Punkten wo sich das Teilchen befindet
     TCanvas *c2 = new TCanvas("c2","c2",800,600);
     c2->cd();
     TGraph *h2 = new TGraph( 100 , rootx, rooty);
     h2->SetMarkerStyle(6);
-    /*for(i=1; i<=W;i++){
-            cout << "x="<<rootx[i] << "  y="<<rooty[i] << endl;
-            h2->Fill(rootx[i], rooty[i]);
 
-
-    }*/
     //h->SetEntries(1);
     h2->Draw();
     c2->Update();
