@@ -13,9 +13,9 @@
 using namespace std;
 
 //#experimentelle informatik
-#define W 100 //Groesse des Koordinatensystems, brauche ich ueberall
+#define W 100 //Groesse des Koordinatensystems, brauche ich ueberall, im Zweifel hier aendern
 
-// Diese Funktion erstellt den Passenden "Kondensator" aus 4 Auswahlmoeglichkeiten mit Anpassungsmoeglichkeiten
+// Diese Funktion erstellt den passenden "Kondensator" aus 4 Auswahlmoeglichkeiten mit Anpassungsmoeglichkeiten
 void kondensator(double M[W][W], int v, int o, int q, int y1, int y2, int x, int l, double m){
 
     //Koordinatensystem vorher ueberall auf Null setzen
@@ -275,7 +275,7 @@ int main() {
 
 
 
-    //initialisieren/Nullsetzen Koordinatensysteme
+    //Initialisieren/Nullsetzen Koordinatensysteme
    for(i=0; i<W; i++) {
         for (j = 0; j < W; j++) {
             X[i][j] =0; // x Komponente Vektor
@@ -327,7 +327,7 @@ int main() {
     c->SaveAs("feldstaerke.png");
 
 
-    // Ein Teilchen wird durch das Koordinaten sytem geschossen. Hier  wird nach genauerem gefragt.
+    // Ein Teilchen wird durch das Koordinatensytem geschossen. Hier  wird nach genauerem gefragt.
     int xi,yi;
     double vx,vy,xx,yy;
     int t;
@@ -350,29 +350,23 @@ int main() {
     rootx[0]=xi+vx;
     rooty[0]=yi+vy;
     for(i=1; i<=t; i++){
-        //if (M[xi][yi] != 0) continue;
-        //if (xi>W || xi< 0 ||yi<0 || yi>W) break;
-        //if((int)rootx>=0 && (int)rootx<=W &&(int)rooty>=0 && (int)rooty<=W){
             rootx[i]=rootx[i-1]+0.5*X[(int)rootx[i-1]][(int)rooty[i-1]]*1*1;
             rooty[i]=rooty[i-1]+0.5*Y[(int)rootx[i-1]][(int)rooty[i-1]]*1*1;
             if (rootx[i]>=W) break;
             if (rooty[i]>=W) break;
             if (rootx[i]<0) break;
             if (rooty[i]<0) break;
-
-        //}
-
     }
+
     //Bild mit den Punkten wo sich das Teilchen befindet
     TCanvas *c2 = new TCanvas("c2","c2",800,600);
     c2->cd();
     TGraph *h2 = new TGraph( 100 , rootx, rooty);
     h2->SetMarkerStyle(6);
 
-    //h->SetEntries(1);
+
     h2->Draw();
     c2->Update();
-    //h->Draw("ARR" );
     c2->SaveAs("teilchen.png");
 
 
