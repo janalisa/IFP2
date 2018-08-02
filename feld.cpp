@@ -4,29 +4,41 @@
 
 
 #include "feld.h"
-/*
-//Brauche ich hier 2 Values oder 4 oder 3? Weil ihc wuerde ja gerne den Ort und das Feld speihenr...
+#include "vektor.h"
 
-void feld::getvalue(double X, double Y){
+class feld[100][100];
 
-}
-void feld::setvalue(double X, double Y){
+double[100][100] M;
 
-}
 
-//Berechnung Magnitude
-double feld::mag(){}
-
-feld::feld(double x, double y){
-    X2[i][j] = GX[i][j];
-    Y2[i][j] = GY[i][j];
+feld::feld() {
+  for(int i=0; i<100; i++){
+      for(int j=0; j<100; j++){
+          M[i][j]=0;
+      }
+  }
 }
 
-feld::~feld(){};
-
-void feld::setvalue(double X2[i][j], double Y2[i][j]) = (GX[i][j], GY[i][j]]]);
-double feld::mag() {return X2[i][j]*Y2[i][j];}
+feld::feld(double m, int x, int y1, int y2, int l){
+    if(int j==y1){
+        for(int i=x; i<=x+l; i++){
+            M[i][y1]=m;
+        }
+    }
+    if(int j==y2){
+        for (int i = x; i <= x + l; i++) {
+            M[i][y2] = m;
+        }
+    }
 }
 
-// i have no idea what i'm doing
-*/
+double[100][100] feld::get() {
+    return M;
+
+}
+
+
+
+vektor::~vektor() {
+
+}
