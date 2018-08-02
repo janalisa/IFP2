@@ -39,6 +39,6 @@ double[100][100] feld::get() {
 
 
 
-vektor::~vektor() {
+feld::~feld() {
 
 }
