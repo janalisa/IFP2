@@ -6,10 +6,6 @@
 #include "feld.h"
 #include "vektor.h"
 
-class feld[100][100];
-
-double[100][100] M;
-
 
 feld::feld() {
   for(int i=0; i<100; i++){
@@ -20,7 +16,7 @@ feld::feld() {
 }
 
 feld::feld(double m, int x, int y1, int y2, int l){
-    if(int j==y1){
+    if(int j==y1){  //TH: was soll hier j sein? Ich blicke da leider nicht durch.
         for(int i=x; i<=x+l; i++){
             M[i][y1]=m;
         }
@@ -31,13 +27,6 @@ feld::feld(double m, int x, int y1, int y2, int l){
         }
     }
 }
-
-double[100][100] feld::get() {
-    return M;
-
-}
-
-
 
 feld::~feld() {
 

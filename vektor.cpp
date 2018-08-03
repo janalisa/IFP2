@@ -7,32 +7,25 @@
 //voll Objektorientiert
 // ohne Objekte
 
-class vektor[3];
-
-double[3] v;
-
-
- vektor::vektor() {
+vektor::vektor() {
+    // Default Konstuktor .. alles Null
     v[0] = 0.;
     v[1] = 0.;
     v[2] = 0.;
 }
 
-vektor::vektor(double a, double b, double c){
+vektor::vektor(double a, double b, double c) {
     v[0] = a;
     v[1] = b;
     v[2] = c;
 }
 
-double[3] vektor::get() {
+double* vektor::get() {
+    // getter
     return v;
-
 }
 
-double vektor::mag(/*iwas mit vektor()*/) {
-     double mag = sqrt(v[0]*v[0]+v[1]*v[1]+v[2]*v[2]);
- }
-
-vektor::~vektor() {
-
+double vektor::mag() {
+    double mag = sqrt(v[0] * v[0] + v[1] * v[1] + v[2] * v[2]);
+    return mag;
 }

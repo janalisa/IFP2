@@ -5,24 +5,25 @@
 #ifndef IFP_VECTOR_H
 #define IFP_VECTOR_H
 
-/* class vektor{
-    double x,y,z;
+
+class vektor {
 
 public:
+    // Constructors
     vektor();
-    vektor(double x, double y, double z);
-    ~vektor();
+    vektor(double a, double b, double c);
 
-void setx(double x);
-void sety(double y);
-void setz(double z);
+    // Destructor
+    ~vektor() {};
 
-double phi();
-double theta();
-double len();
+    // Methods
+    double* get();
+    double mag();
+
+private:
+    double v[3];
 
 };
-*/
 
 #endif //IFP_VECTOR_H
 
