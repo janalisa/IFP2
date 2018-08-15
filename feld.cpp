@@ -1,7 +1,7 @@
 //
 // Created by sia on 9-7-18.
 //
-
+/*
 
 #include "feld.h"
 #include "vektor.h"
@@ -36,4 +36,4 @@ feld::feld(double m, int x, int y1, int y2, int l){
 
 feld::~feld() {
 
-}
+}*/

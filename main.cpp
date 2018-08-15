@@ -1,25 +1,25 @@
 #include <iostream>
 #include <cmath>
 //#include "vektor.h"
-#include "TH2D.h"
-#include "TCanvas.h"
+//#include "TH2D.h"
+//#include "TCanvas.h"
 //#include "feld.h"
-#include "TGraph.h"
-#include "TStyle.h"
-#include "TMath.h"
-#include "TH1F.h"
+//#include "TGraph.h"
+//#include "TStyle.h"
+//#include "TMath.h"
+//#include "TH1F.h"
 //#include "TH3F.h"
 
 using namespace std;
 
 //neu und in 3D
+double M[100][100][100];
 
-
-void platten(int lx, int ly, int z1, int z2, int x, int y, double m, double *M){
+void platten(int lx, int ly, int z1, int z2, int x, int y, double m, double M[100][100][100]){
     for(int i=x; i<x+lx; i++){
         for(int j=y; j<ly+y; j++){
-            &M[i][j][z1]=m;
-            &M[i][j][z2]=m;
+            M[i][j][z1]=m;
+            M[i][j][z2]=m;
         }
     }
 };
@@ -29,7 +29,7 @@ void platten(int lx, int ly, int z1, int z2, int x, int y, double m, double *M){
 
 int main(){
 
-    double *M[100][100][100];
+
     double G[100][100][100][3];
     int lx, ly;
     int z1, z2;
@@ -62,9 +62,9 @@ int main(){
     cout << "Bei welchem Z Wert liegt die zweite Platte"<< endl;
     scanf("%i", &z2);
     cout << "Was ist die Masse eines Unterteilungsstueckes?"<< endl;
-    scanf("%f", &m);
+    scanf("%lf", &m);
 
-    platten(lx, ly, z1, z2, x, y, m);
+    platten(lx, ly, z1, z2, x, y, m, M);
 
 
 

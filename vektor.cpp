@@ -1,7 +1,7 @@
 //
 // Created by sia on 29-6-18.
 //
-
+/*
 #include "vektor.h"
 #include <cmath>
 //voll Objektorientiert
@@ -28,4 +28,4 @@ double* vektor::get() {
 double vektor::mag() {
     double mag = sqrt(v[0] * v[0] + v[1] * v[1] + v[2] * v[2]);
     return mag;
-}
+}*/
