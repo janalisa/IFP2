@@ -15,11 +15,11 @@ using namespace std;
 //neu und in 3D
 
 
-void platten(int lx, int ly, int z1, int z2, int x, int y, double m, double M){
+void platten(int lx, int ly, int z1, int z2, int x, int y, double m, double *M){
     for(int i=x; i<x+lx; i++){
         for(int j=y; j<ly+y; j++){
-            M[i][j][z1]=m;
-            M[i][j][z2]=m;
+            &M[i][j][z1]=m;
+            &M[i][j][z2]=m;
         }
     }
 };
@@ -29,7 +29,7 @@ void platten(int lx, int ly, int z1, int z2, int x, int y, double m, double M){
 
 int main(){
 
-    double M[100][100][100];
+    double *M[100][100][100];
     double G[100][100][100][3];
     int lx, ly;
     int z1, z2;
