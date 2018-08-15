@@ -16,14 +16,20 @@ feld::feld() {
 }
 
 feld::feld(double m, int x, int y1, int y2, int l){
-    if(int j==y1){  //TH: was soll hier j sein? Ich blicke da leider nicht durch.
-        for(int i=x; i<=x+l; i++){
-            M[i][y1]=m;
+    for(int j=0; j<100; j++){
+            if(j==y1){
+                for(int i=x; i<=x+l; i++){
+                    M[i][y1]=m;
+            }//TH: was soll hier j sein? Ich blicke da leider nicht durch.
+
         }
     }
-    if(int j==y2){
-        for (int i = x; i <= x + l; i++) {
-            M[i][y2] = m;
+    for(int j=0; j<100; j++){
+        if(j==y2){
+            for(int i=x; i<=x+l; i++){
+                M[i][y2]=m;
+            }//TH: was soll hier j sein? Ich blicke da leider nicht durch.
+
         }
     }
 }

@@ -3,7 +3,7 @@
 //#include "vektor.h"
 #include "TH2D.h"
 #include "TCanvas.h"
-#include "feld.h"
+//#include "feld.h"
 #include "TGraph.h"
 #include "TStyle.h"
 #include "TMath.h"
@@ -12,7 +12,136 @@
 
 using namespace std;
 
-//#experimentelle informatik
+//neu und in 3D
+
+
+void platten(int lx, int ly, int z1, int z2, int x, int y, double m, double M){
+    for(int i=x; i<x+lx; i++){
+        for(int j=y; j<ly+y; j++){
+            M[i][j][z1]=m;
+            M[i][j][z2]=m;
+        }
+    }
+};
+
+
+
+
+int main(){
+
+    double M[100][100][100];
+    double G[100][100][100][3];
+    int lx, ly;
+    int z1, z2;
+    int x, y;
+    double m;
+
+    for(int i=0; i<100; i++){
+        for(int j=0; j<100; j++){
+            for(int k=0; k<100; k++){
+                M[i][j][k] =0;
+                for(int f=0; f<3; f++){
+                    G[i][j][k][f]=0;
+                }
+            }
+        }
+    }
+
+
+
+    cout << "Was ist die Laenge der Platte in x - Richtung"<< endl;
+    scanf("%i", &lx);
+    cout << "Was ist die Laenge der Platte in y - Richtung"<< endl;
+    scanf("%i", &ly);
+    cout << "Bei welchem X Wert beginnt die Platte?"<< endl;
+    scanf("%i", &x);
+    cout << "Bei welchem Y Wert beginnt die Platte?"<< endl;
+    scanf("%i", &y);
+    cout << "Bei welchem Z Wert liegt die erste Platte"<< endl;
+    scanf("%i", &z1);
+    cout << "Bei welchem Z Wert liegt die zweite Platte"<< endl;
+    scanf("%i", &z2);
+    cout << "Was ist die Masse eines Unterteilungsstueckes?"<< endl;
+    scanf("%f", &m);
+
+    platten(lx, ly, z1, z2, x, y, m);
+
+
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//altes Programm
+
+/*//#experimentelle informatik
 #define W 100 //Groesse des Koordinatensystems, brauche ich ueberall, im Zweifel hier aendern
 
 // Diese Funktion erstellt den passenden "Kondensator" aus 4 Auswahlmoeglichkeiten mit Anpassungsmoeglichkeiten
@@ -379,4 +508,4 @@ int main() {
     return 0;
 }
 
-
+*/
